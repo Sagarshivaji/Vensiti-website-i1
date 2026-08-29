@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+  a { color: #1D4ED8; text-decoration: none; }
+  a:hover { color: #EF8F22; }
+  * { box-sizing: border-box; }
+
+  @media (max-width: 900px) {
+    [style*="grid-template-columns: minmax(0, 1fr) 320px"] { grid-template-columns: 1fr !important; }
+    .site-nav { display: none !important; }
+    .nav-toggle-btn { display: inline-flex !important; order: 2; }
+    .contact-cta { order: 1; }
+    .nav-toggle-input:checked ~ .site-nav {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      flex: 1 1 100% !important;
+      order: 10;
+      background: #123163;
+      border-radius: 10px;
+      padding: 8px;
+      margin-top: 10px;
+      gap: 2px !important;
+    }
+    .nav-toggle-input:checked ~ .site-nav a { padding: 12px 14px !important; border-radius: 8px; }
+    .nav-toggle-input:checked ~ .nav-toggle-btn .icon-open { display: none !important; }
+    .nav-toggle-input:checked ~ .nav-toggle-btn .icon-close { display: block !important; }
+  }
+  @media (max-width: 700px) {
+    [style*="grid-template-columns: repeat(3, minmax(0, 1fr))"] { grid-template-columns: 1fr !important; }
+    [style*="padding: 60px 48px"] { padding: 44px 20px !important; }
+    [style*="padding: 64px 48px"] { padding: 40px 20px !important; }
+    [style*="padding: 14px 48px"] { padding: 10px 16px !important; }
+    [style*="font-size: 40px"] { font-size: 28px !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family: 'Inter', system-ui, sans-serif; color: #0F172A;">
+
+  <header style="background: #0B2447; color: #FFFFFF; position: sticky; top: 0; z-index: 20;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 48px; min-height: 78px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px;">
+      <a href="#" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <span style="width: 34px; height: 34px; border-radius: 7px; background: #EF8F22; display: inline-flex; align-items: center; justify-content: center; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; color: #0B2447;">V</span>
+        <span style="display: flex; flex-direction: column; line-height: 1;">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.01em; color: #FFFFFF;">Vensiti</span>
+          <span style="font-size: 8px; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); margin-top: 3px;">QUALITY | COMMITTED</span>
+        </span>
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;" />
+
+      <nav class="site-nav" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;">
+        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Home</a>
+        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Services</a>
+        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Hire Talent</a>
+        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: #F5A02A; background: #123163; border-radius: 8px; font-weight: 600;">Jobs</a>
+        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">How We Work</a>
+        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Insights</a>
+        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">About</a>
+      </nav>
+
+      <a href="#" class="contact-cta" style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 14px 24px; white-space: nowrap;" style-hover="background: #D97C10; color: #0B2447;">Contact US</a>
+
+      <label for="nav-toggle" class="nav-toggle-btn" style="display: none; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; flex-shrink: 0;">
+        <svg class="icon-open" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" /></svg>
+        <svg class="icon-close" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;"><path d="M3 3L15 15M15 3L3 15" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" /></svg>
+      </label>
+    </div>
+  </header>
+
+  <section style="background: #0B2447; color: #FFFFFF;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 60px 48px; display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.5);">Home / Jobs / Senior DevOps Engineer</span>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <h1 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 40px; line-height: 1.1; letter-spacing: -0.025em; margin: 0;">Senior DevOps Engineer</h1>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #0B2447; background: #FDE3C1; border-radius: 5px; padding: 5px 8px; white-space: nowrap;">New</span>
+      </div>
+      <span style="font-size: 16px; color: rgba(255,255,255,0.72);">Remote · US · Full-time · Posted today</span>
+      <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 6px;">
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; color: #F5A02A;">$130k – $160k</span>
+        <a href="#contact" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 14px 24px;" style-hover="background: #D97C10; color: #0B2447;">Apply for this role →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #FFFFFF;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 64px 48px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 28px;">
+        <p style="font-size: 18px; line-height: 1.7; color: #3F4A57; margin: 0;">Own CI/CD pipelines and cloud infrastructure for a growing engineering org, working directly with the platform team to make deploys boring — automated, observable, and reversible in one command.</p>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.015em; margin: 0;">What you'll do</h2>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: #1D4ED8; font-weight: 700; flex-shrink: 0;">✓</span><span style="font-size: 16px; line-height: 1.6; color: #3F4A57;">Build and maintain CI/CD pipelines across multiple services</span></div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: #1D4ED8; font-weight: 700; flex-shrink: 0;">✓</span><span style="font-size: 16px; line-height: 1.6; color: #3F4A57;">Design infrastructure as code with Terraform</span></div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: #1D4ED8; font-weight: 700; flex-shrink: 0;">✓</span><span style="font-size: 16px; line-height: 1.6; color: #3F4A57;">Own on-call rotation and incident response for platform services</span></div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: #1D4ED8; font-weight: 700; flex-shrink: 0;">✓</span><span style="font-size: 16px; line-height: 1.6; color: #3F4A57;">Partner with engineering teams to reduce deploy friction</span></div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.015em; margin: 0;">What we're looking for</h2>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: #1D4ED8; font-weight: 700; flex-shrink: 0;">✓</span><span style="font-size: 16px; line-height: 1.6; color: #3F4A57;">5+ years operating production Kubernetes at scale</span></div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: #1D4ED8; font-weight: 700; flex-shrink: 0;">✓</span><span style="font-size: 16px; line-height: 1.6; color: #3F4A57;">Deep experience with Terraform and AWS</span></div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: #1D4ED8; font-weight: 700; flex-shrink: 0;">✓</span><span style="font-size: 16px; line-height: 1.6; color: #3F4A57;">Comfortable owning an on-call rotation</span></div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: #1D4ED8; font-weight: 700; flex-shrink: 0;">✓</span><span style="font-size: 16px; line-height: 1.6; color: #3F4A57;">Has shipped a CI/CD pipeline from scratch, not just maintained one</span></div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: 12px; color: #0F172A; background: #F7F8FA; border: 1px solid #E5E7EB; border-radius: 6px; padding: 6px 10px;">Kubernetes</span>
+          <span style="font-size: 12px; color: #0F172A; background: #F7F8FA; border: 1px solid #E5E7EB; border-radius: 6px; padding: 6px 10px;">AWS</span>
+          <span style="font-size: 12px; color: #0F172A; background: #F7F8FA; border: 1px solid #E5E7EB; border-radius: 6px; padding: 6px 10px;">Terraform</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="background: #F7F8FA; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">At a glance</span>
+          <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 13px; color: #6B7280;">Compensation</span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">$130k – $160k</span></div>
+          <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 13px; color: #6B7280;">Location &amp; type</span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Remote · US · Full-time</span></div>
+          <a href="#contact" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 14px 18px; text-align: center; margin-top: 4px;" style-hover="background: #123163; color: #FFFFFF;">Apply for this role</a>
+        </div>
+        <div style="background: #FFF7ED; border: 1px solid #FBD9A8; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; color: #0B2447;">Not quite the right fit?</span>
+          <span style="font-size: 14px; color: #3F4A57; line-height: 1.55;">We'll keep your CV on file and reach out when something closer opens up.</span>
+          <a href="#submit-cv" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8;" style-hover="color: #EF8F22;">Submit your CV →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #F7F8FA; border-top: 1px solid #E5E7EB;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 64px 48px; display: flex; flex-direction: column; gap: 28px;">
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.015em; margin: 0;">Other open roles</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+        <a href="#job-qa-automation-lead" style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; color: #0F172A;" style-hover="box-shadow: 0 12px 30px -14px rgba(11,36,71,0.22); color: #0F172A;">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">QA Automation Lead</span>
+          <span style="font-size: 13px; color: #6B7280;">Hybrid · Dallas · Full-time · Posted 2 days ago</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; margin-top: 4px;">$115k – $140k</span>
+        </a>
+
+        <a href="#job-cloud-architect" style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; color: #0F172A;" style-hover="box-shadow: 0 12px 30px -14px rgba(11,36,71,0.22); color: #0F172A;">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Cloud Architect</span>
+          <span style="font-size: 13px; color: #6B7280;">Remote · Contract · Posted 3 days ago</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; margin-top: 4px;">$90 – $120/hr</span>
+        </a>
+
+        <a href="#job-sre" style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; color: #0F172A;" style-hover="box-shadow: 0 12px 30px -14px rgba(11,36,71,0.22); color: #0F172A;">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Site Reliability Engineer</span>
+          <span style="font-size: 13px; color: #6B7280;">Remote · EU · Contract · Posted 4 days ago</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; margin-top: 4px;">$85 – $110/hr</span>
+        </a>
+      </div>
+      <a href="#jobs" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #1D4ED8; align-self: center;" style-hover="color: #EF8F22;">View all open roles →</a>
+    </div>
+  </section>
+
+  <footer style="background: #0B0B0B; color: #FFFFFF;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 64px 48px 32px; display: flex; flex-direction: column; gap: 40px;">
+      <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 32px;">
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="width: 30px; height: 30px; border-radius: 7px; background: #EF8F22; display: inline-flex; align-items: center; justify-content: center; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 17px; color: #0B2447;">V</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 19px; color: rgba(255,255,255,0.9);">Vensiti</span>
+          </div>
+          <p style="font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.7); margin: 0; max-width: 40ch;">Engineering excellence through precision services and precision talent placement. Trusted by technology leaders across industries.</p>
+          <div style="display: flex; gap: 9px;">
+            <a href="#" style="width: 34px; height: 34px; border-radius: 7px; background: #FFFFFF; color: #0B0B0B; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600;" style-hover="background: #EF8F22; color: #0B2447;">in</a>
+            <a href="#" style="width: 34px; height: 34px; border-radius: 7px; background: #FFFFFF; color: #0B0B0B; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600;" style-hover="background: #EF8F22; color: #0B2447;">X</a>
+            <a href="#" style="width: 34px; height: 34px; border-radius: 7px; background: #FFFFFF; color: #0B0B0B; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600;" style-hover="background: #EF8F22; color: #0B2447;">f</a>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 9px; margin-top: 8px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Contact</span>
+            <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">hello@vensiti.com</a>
+            <span style="font-size: 15px; color: rgba(255,255,255,0.82);">+1 (000) 000-0000</span>
+            <span style="font-size: 15px; color: rgba(255,255,255,0.82);">[Registered office address]</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Services</span>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">All Services</a>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">DevOps &amp; Cloud</a>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">Quality Engineering</a>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">How We Work</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Talent</span>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">Hire Talent</a>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">Browse Jobs</a>
+          <a href="#submit-cv" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">Submit Your CV</a>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">Employer Contact</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Company</span>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">About Vensiti</a>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">Insights</a>
+          <a href="#" style="font-size: 15px; color: rgba(255,255,255,0.82);" style-hover="color: #EF8F22;">Contact Us</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(255,255,255,0.16); padding-top: 22px; font-size: 13px; color: rgba(255,255,255,0.55);">
+        <span>© 2026 Vensiti. All rights reserved.</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+          <a href="#" style="font-size: 13px; color: rgba(255,255,255,0.55);" style-hover="color: #EF8F22;">Privacy Policy</a>
+          <a href="#" style="font-size: 13px; color: rgba(255,255,255,0.55);" style-hover="color: #EF8F22;">Terms of Service</a>
+          <a href="#" style="font-size: 13px; color: rgba(255,255,255,0.55);" style-hover="color: #EF8F22;">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "Home", "x": 0, "y": 0, "w": 1280, "h": 4400 },
+    { "file": "Services.dc.html", "x": 1380, "y": 0, "w": 1280, "h": 3400 },
+    { "file": "HireTalent.dc.html", "title": "Hire Talent", "x": 2760, "y": 0, "w": 1280, "h": 3600 },
+    { "file": "Jobs.dc.html", "x": 0, "y": 4550, "w": 1280, "h": 3300 },
+    { "file": "HowWeWork.dc.html", "title": "How We Work", "x": 1380, "y": 4550, "w": 1280, "h": 3100 },
+    { "file": "Insights.dc.html", "x": 2760, "y": 4550, "w": 1280, "h": 2900 },
+    { "file": "About.dc.html", "x": 0, "y": 8000, "w": 1280, "h": 3700 },
+    { "file": "Contact.dc.html", "x": 1380, "y": 8000, "w": 1280, "h": 2100 },
+    { "file": "DevOps.dc.html", "title": "Services / DevOps", "x": 0, "y": 11850, "w": 1280, "h": 3200 },
+    { "file": "Testing.dc.html", "title": "Services / Quality Engineering", "x": 1380, "y": 11850, "w": 1280, "h": 3200 },
+    { "file": "ArticlePullDelivery.dc.html", "title": "Pull-based delivery", "x": 0, "y": 0, "w": 1280, "h": 2500, "page": "page-2" },
+    { "file": "ArticleBadHire.dc.html", "title": "Hidden costs of a bad hire", "x": 1380, "y": 0, "w": 1280, "h": 2500, "page": "page-2" },
+    { "file": "ArticleStaffEngineer.dc.html", "title": "Senior to staff engineer", "x": 2760, "y": 0, "w": 1280, "h": 2500, "page": "page-2" },
+    { "file": "ArticleCloudBill.dc.html", "title": "Cloud bill creep", "x": 0, "y": 2650, "w": 1280, "h": 2500, "page": "page-2" },
+    { "file": "ArticleTechnicalScreens.dc.html", "title": "Technical screens guide", "x": 1380, "y": 2650, "w": 1280, "h": 2500, "page": "page-2" },
+    { "file": "ArticleRetention.dc.html", "title": "90-day retention", "x": 2760, "y": 2650, "w": 1280, "h": 2500, "page": "page-2" },
+    { "file": "JobSeniorDevOps.dc.html", "title": "Job: Senior DevOps Engineer", "x": 0, "y": 0, "w": 1280, "h": 2200, "page": "page-3" },
+    { "file": "JobQAAutomationLead.dc.html", "title": "Job: QA Automation Lead", "x": 1380, "y": 0, "w": 1280, "h": 2200, "page": "page-3" },
+    { "file": "JobCloudArchitect.dc.html", "title": "Job: Cloud Architect", "x": 2760, "y": 0, "w": 1280, "h": 2200, "page": "page-3" },
+    { "file": "JobSRE.dc.html", "title": "Job: Site Reliability Engineer", "x": 0, "y": 2350, "w": 1280, "h": 2200, "page": "page-3" },
+    { "file": "JobPerformanceTestEngineer.dc.html", "title": "Job: Performance Test Engineer", "x": 1380, "y": 2350, "w": 1280, "h": 2200, "page": "page-3" },
+    { "file": "JobPlatformEngineer.dc.html", "title": "Job: Platform Engineer", "x": 2760, "y": 2350, "w": 1280, "h": 2200, "page": "page-3" },
+    { "file": "SubmitCV.dc.html", "title": "Submit Your CV", "x": 0, "y": 4700, "w": 1280, "h": 2600, "page": "page-3" }
+  ],
+  "pages": [
+    { "id": "page-1", "name": "Site" },
+    { "id": "page-2", "name": "Insights Articles" },
+    { "id": "page-3", "name": "Job Postings" }
+  ],
+  "launch": { "view": "canvas", "page": "page-3" }
+}

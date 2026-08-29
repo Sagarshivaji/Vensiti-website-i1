@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #EDEFF2; -webkit-font-smoothing: antialiased; }
+  a { color: #1A4BA0; text-decoration: none; border-bottom: 1px solid rgba(29,53,87,0.3); }
+  a:hover { color: #1D4ED8; border-bottom-color: #1D4ED8; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<div style="font-family: 'Inter', system-ui, sans-serif; color: #0B2447; padding: 56px 56px 160px; display: flex; flex-direction: column; gap: 64px;">
+
+  <div style="display: flex; flex-direction: column; gap: 18px; max-width: 880px;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #1D4ED8;">Wireframes · Round 1 · v2 tokens</div>
+    <h1 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 46px; line-height: 1.05; letter-spacing: -0.03em; margin: 0; text-wrap: pretty;">Home, Services, DevOps detail, Hire Talent</h1>
+    <p style="font-size: 17px; line-height: 1.6; color: #6B7280; margin: 0; max-width: 70ch; text-wrap: pretty;">Styled low-fi, drawn only from the design system. Grey bars stand in for copy that isn't written; striped blocks are imagery. Desktop frames are 1280 wide, mobile 390. Every frame carries a badge id — reference it in chat.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; padding-top: 4px;">
+      <span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 26px; height: 10px; background: #DDE0E5; border-radius: 3px;"></span>copy to be written</span>
+      <span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 26px; height: 16px; background: repeating-linear-gradient(135deg, #E7E9ED 0 6px, #F2F3F6 6px 12px); border-radius: 3px;"></span>image slot</span>
+      <span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 26px; height: 16px; border: 1px dashed #C3C7CE; border-radius: 3px;"></span>annotation</span>
+    </div>
+    <div style="background: #FFFFFF; border: 1px solid #DDE0E5; border-radius: 14px; padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Human-centered, as applied here</div>
+      <div style="font-size: 15px; line-height: 1.7; color: #3F4A57;">Every page opens by naming the person it is for, in their words, and offers one obvious next step for each of the three audiences. No page asks for information before it gives any. Copy is plain: no "synergy", no "solutions", no invented client logos. Photography, when it arrives, is candid and real — until then the About and team slots stay text-only rather than fake.</div>
+    </div>
+  </div>
+
+  <section style="display: flex; flex-direction: column; gap: 28px;">
+
+    <div style="display: flex; align-items: baseline; gap: 18px; border-bottom: 1px solid #DDE0E5; padding-bottom: 14px; max-width: 880px;">
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.02em; margin: 0;">Home hero — three directions</h2>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280;">pick one, or mix</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+
+      <div id="1a" style="display: flex; flex-direction: column; gap: 12px; width: 1280px; flex-shrink: 0;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: #0B2447; background: #EF8F22; border-radius: 4px; padding: 5px 10px;">1a</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Three doors</span>
+          <span style="font-size: 14px; color: #6B7280;">The visitor self-identifies before anything is sold. Most human-centered, least brand-forward.</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden;">
+          <div style="height: 68px; padding: 0 40px; display: flex; align-items: center; gap: 34px; border-bottom: 1px solid #E5E7EB;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em;">Vensiti</span>
+            <div style="display: flex; gap: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 14px; color: #3F4A57;">
+              <span>Services</span><span>Hire Talent</span><span>Jobs</span><span>How We Work</span><span>Insights</span><span>About</span>
+            </div>
+            <span style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 11px 18px;">Contact us</span>
+          </div>
+          <div style="padding: 76px 40px 68px; display: flex; flex-direction: column; gap: 44px; align-items: center; background: #F7F8FA;">
+            <div style="display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center;">
+              <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 54px; line-height: 1.04; letter-spacing: -0.03em; max-width: 24ch;">Tell us who you are and we'll get out of your way</div>
+              <div style="font-size: 18px; line-height: 1.6; color: #3F4A57; max-width: 60ch;">DevOps and quality engineering, delivered by people you can talk to directly.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; width: 100%;">
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(10,26,47,0.05);">
+                <span style="width: 26px; height: 26px; border: 1.7px solid #1D4ED8; border-radius: 6px;"></span>
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.01em;">I need my releases to stop breaking</div>
+                <div style="font-size: 15px; line-height: 1.6; color: #3F4A57;">Engineering leaders. Pipelines, infrastructure, test coverage.</div>
+                <div style="height: 10px; width: 78%; background: #DDE0E5; border-radius: 3px;"></div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 4px;">See our services →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(10,26,47,0.05);">
+                <span style="width: 26px; height: 26px; border: 1.7px solid #1D4ED8; border-radius: 999px;"></span>
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.01em;">I need engineers who can start now</div>
+                <div style="font-size: 15px; line-height: 1.6; color: #3F4A57;">Hiring teams. Vetted senior people, on your standups within two weeks.</div>
+                <div style="height: 10px; width: 66%; background: #DDE0E5; border-radius: 3px;"></div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 4px;">Hire talent →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(10,26,47,0.05);">
+                <span style="width: 26px; height: 26px; border: 1.7px solid #1D4ED8; transform: rotate(45deg);"></span>
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.01em;">I'm looking for my next role</div>
+                <div style="font-size: 15px; line-height: 1.6; color: #3F4A57;">Engineers. Real salary ranges, one-step applications, a reply either way.</div>
+                <div style="height: 10px; width: 72%; background: #DDE0E5; border-radius: 3px;"></div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 4px;">Browse open roles →</span>
+              </div>
+            </div>
+            <div style="border: 1px dashed #C3C7CE; border-radius: 6px; padding: 10px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; max-width: 78ch; text-align: center;">No image in the hero at all. The three doors are the visual. Cheapest to launch, nothing to fake.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="1b" style="display: flex; flex-direction: column; gap: 12px; width: 1280px; flex-shrink: 0;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: #0B2447; background: #EF8F22; border-radius: 4px; padding: 5px 10px;">1b</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">A person, not a pitch</span>
+          <span style="font-size: 14px; color: #6B7280;">Leads with a named engineer and a direct offer to talk. Needs one real photo.</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden;">
+          <div style="height: 68px; padding: 0 40px; display: flex; align-items: center; gap: 34px; background: #0B2447; color: #F7F8FA;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em;">Vensiti</span>
+            <div style="display: flex; gap: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 14px; color: rgba(255,255,255,0.82);">
+              <span>Services</span><span>Hire Talent</span><span>Jobs</span><span>How We Work</span><span>Insights</span><span>About</span>
+            </div>
+            <span style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 11px 18px;">Contact us</span>
+          </div>
+          <div style="background: #0B2447; color: #F7F8FA; padding: 72px 40px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #EF8F22;">DevOps · Quality Engineering · Talent</div>
+              <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 52px; line-height: 1.04; letter-spacing: -0.03em; max-width: 20ch;">You'll talk to the engineer who does the work</div>
+              <div style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.72); max-width: 52ch;">No account managers between you and the people fixing your pipeline. Thirty minutes, a real assessment, no deck.</div>
+              <div style="display: flex; gap: 12px; margin-top: 8px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px;">Book 30 minutes</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #F7F8FA; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; padding: 15px 24px;">How we work</span>
+              </div>
+              <div style="display: flex; gap: 34px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 22px; margin-top: 14px;">
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                  <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #EF8F22;">4×</span>
+                  <span style="font-size: 13px; color: rgba(255,255,255,0.65);">faster releases, median client</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                  <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #EF8F22;">11 yrs</span>
+                  <span style="font-size: 13px; color: rgba(255,255,255,0.65);">avg. engineer experience</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                  <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #EF8F22;">2 wks</span>
+                  <span style="font-size: 13px; color: rgba(255,255,255,0.65);">to first commit</span>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="height: 330px; border-radius: 14px; background: repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 8px, rgba(255,255,255,0.02) 8px 16px); border: 1px solid rgba(255,255,255,0.16); display: flex; align-items: flex-end; padding: 24px;">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: rgba(255,255,255,0.6);">candid photo — one engineer at their desk</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4);">3:4 portrait · real person, real screen</span>
+                </div>
+              </div>
+              <div style="border: 1px dashed rgba(255,255,255,0.3); border-radius: 6px; padding: 10px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.55);">Blocker: needs one real photo + a name and title. Do not launch with stock here.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="1c" style="display: flex; flex-direction: column; gap: 12px; width: 1280px; flex-shrink: 0;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: #0B2447; background: #EF8F22; border-radius: 4px; padding: 5px 10px;">1c</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Their sentence, not ours</span>
+          <span style="font-size: 14px; color: #6B7280;">Opens on the visitor's own problem in quotes. Quietest, most confident.</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden;">
+          <div style="height: 68px; padding: 0 40px; display: flex; align-items: center; gap: 34px; border-bottom: 1px solid #E5E7EB;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em;">Vensiti</span>
+            <div style="display: flex; gap: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 14px; color: #3F4A57;">
+              <span>Services</span><span>Hire Talent</span><span>Jobs</span><span>How We Work</span><span>Insights</span><span>About</span>
+            </div>
+            <span style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 11px 18px;">Contact us</span>
+          </div>
+          <div style="padding: 88px 40px 72px; background: #FFF7ED; display: flex; flex-direction: column; gap: 40px;">
+            <div style="display: flex; flex-direction: column; gap: 22px; max-width: 900px;">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #B45309;">What we usually hear first</div>
+              <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.12; letter-spacing: -0.025em; color: #0B2447; max-width: 26ch;">“Deploys take a whole afternoon and someone has to babysit them.”</div>
+              <div style="font-size: 18px; line-height: 1.65; color: #3F4A57; max-width: 62ch;">That's usually where we start. Two weeks inside your pipeline, findings you keep whether or not you hire us.</div>
+              <div style="display: flex; gap: 12px; align-items: center; margin-top: 6px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 15px 24px;">Start with an assessment</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #0B2447; border: 1px solid #E5B77A; border-radius: 999px; padding: 15px 24px;">I'm here to hire, not buy</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; border-top: 1px solid #FBD9A8; padding-top: 26px;">
+              <span style="font-family: 'Inter', sans-serif; font-size: 14px; color: #0B2447; background: rgba(255,255,255,0.7); border: 1px solid #FBD9A8; border-radius: 999px; padding: 10px 16px;">“Our test suite is red and nobody trusts it”</span>
+              <span style="font-family: 'Inter', sans-serif; font-size: 14px; color: #0B2447; background: rgba(255,255,255,0.7); border: 1px solid #FBD9A8; border-radius: 999px; padding: 10px 16px;">“We can't hire a platform engineer fast enough”</span>
+              <span style="font-family: 'Inter', sans-serif; font-size: 14px; color: #0B2447; background: rgba(255,255,255,0.7); border: 1px solid #FBD9A8; border-radius: 999px; padding: 10px 16px;">“Cloud bill doubled, nobody knows why”</span>
+              <span style="font-family: 'Inter', sans-serif; font-size: 14px; color: #6B7280; border: 1px dashed #E5B77A; border-radius: 999px; padding: 10px 16px;">each chip → its service page</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display: flex; align-items: baseline; gap: 18px; border-bottom: 1px solid #DDE0E5; padding-bottom: 14px; max-width: 880px; margin-top: 24px;">
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.02em; margin: 0;">Full pages</h2>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280;">shown with hero 1a · desktop + mobile</span>
+    </div>
+
+    <div id="1d" style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: #0B2447; background: #EF8F22; border-radius: 4px; padding: 5px 10px;">1d</span>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Home</span>
+      </div>
+      <div style="display: flex; gap: 32px; align-items: flex-start;">
+
+        <div style="width: 1280px; flex-shrink: 0; background: #F7F8FA; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden;">
+          <div style="height: 68px; padding: 0 40px; display: flex; align-items: center; gap: 34px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em;">Vensiti</span>
+            <div style="display: flex; gap: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 14px; color: #3F4A57;">
+              <span>Services ▾</span><span>Hire Talent</span><span>Jobs</span><span>How We Work</span><span>Insights</span><span>About</span>
+            </div>
+            <span style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 11px 18px;">Contact us</span>
+          </div>
+
+          <div style="padding: 68px 40px 60px; display: flex; flex-direction: column; gap: 38px; align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center;">
+              <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 50px; line-height: 1.04; letter-spacing: -0.03em; max-width: 24ch;">Tell us who you are and we'll get out of your way</div>
+              <div style="font-size: 18px; line-height: 1.6; color: #3F4A57; max-width: 58ch;">DevOps and quality engineering, delivered by people you can talk to directly.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; width: 100%;">
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="width: 24px; height: 24px; border: 1.7px solid #1D4ED8; border-radius: 6px;"></span>
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px;">I need my releases to stop breaking</div>
+                <div style="height: 10px; width: 92%; background: #DDE0E5; border-radius: 3px;"></div>
+                <div style="height: 10px; width: 74%; background: #DDE0E5; border-radius: 3px;"></div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 4px;">See our services →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="width: 24px; height: 24px; border: 1.7px solid #1D4ED8; border-radius: 999px;"></span>
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px;">I need engineers who can start now</div>
+                <div style="height: 10px; width: 88%; background: #DDE0E5; border-radius: 3px;"></div>
+                <div style="height: 10px; width: 66%; background: #DDE0E5; border-radius: 3px;"></div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 4px;">Hire talent →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="width: 24px; height: 24px; border: 1.7px solid #1D4ED8; transform: rotate(45deg);"></span>
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px;">I'm looking for my next role</div>
+                <div style="height: 10px; width: 90%; background: #DDE0E5; border-radius: 3px;"></div>
+                <div style="height: 10px; width: 70%; background: #DDE0E5; border-radius: 3px;"></div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 4px;">Browse open roles →</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; padding: 40px; display: flex; flex-direction: column; gap: 22px;">
+            <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+              <div style="border-left: 2px solid #EF8F22; padding-left: 16px; display: flex; flex-direction: column; gap: 6px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.03em;">97%</span>
+                <span style="font-size: 13px; color: #6B7280;">placement retention at 12 months</span>
+              </div>
+              <div style="border-left: 1px solid #E5E7EB; padding-left: 16px; display: flex; flex-direction: column; gap: 6px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.03em;">4×</span>
+                <span style="font-size: 13px; color: #6B7280;">faster release cadence</span>
+              </div>
+              <div style="border-left: 1px solid #E5E7EB; padding-left: 16px; display: flex; flex-direction: column; gap: 6px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.03em;">11 yrs</span>
+                <span style="font-size: 13px; color: #6B7280;">avg. engineer experience</span>
+              </div>
+              <div style="border-left: 1px solid #E5E7EB; padding-left: 16px; display: flex; flex-direction: column; gap: 6px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.03em;">SOC 2</span>
+                <span style="font-size: 13px; color: #6B7280;">aligned delivery practices</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; border-top: 1px solid #F1F2F4; padding-top: 18px; align-items: center;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF; margin-right: 8px;">Industries we work in</span>
+              <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 7px 13px;">FinTech</span>
+              <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 7px 13px;">Healthcare</span>
+              <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 7px 13px;">B2B SaaS</span>
+              <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 7px 13px;">Retail</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; border: 1px dashed #C3C7CE; border-radius: 999px; padding: 7px 13px;">no client logos — anonymized by design</span>
+            </div>
+          </div>
+
+          <div style="padding: 60px 40px; display: flex; flex-direction: column; gap: 28px;">
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #1D4ED8;">What we do</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 38px; letter-spacing: -0.025em; max-width: 22ch; line-height: 1.08;">Two practices, one team</span>
+              </div>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #0B2447; border-bottom: 1px solid #D6D9DE; padding-bottom: 3px;">All services →</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                <div style="height: 170px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF;">pipeline diagram · illustrated</div>
+                <div style="padding: 26px; display: flex; flex-direction: column; gap: 12px;">
+                  <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.01em;">DevOps &amp; Cloud Engineering</div>
+                  <div style="height: 10px; width: 94%; background: #DDE0E5; border-radius: 3px;"></div>
+                  <div style="height: 10px; width: 80%; background: #DDE0E5; border-radius: 3px;"></div>
+                  <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+                    <span style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #0B2447;"><span style="width: 18px; height: 18px; border: 1.7px solid #1D4ED8; border-radius: 4px; flex-shrink: 0;"></span>CI/CD and release automation</span>
+                    <span style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #0B2447;"><span style="width: 18px; height: 18px; border: 1.7px solid #1D4ED8; border-radius: 4px; flex-shrink: 0;"></span>Infrastructure as code</span>
+                    <span style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #0B2447;"><span style="width: 18px; height: 18px; border: 1.7px solid #1D4ED8; border-radius: 4px; flex-shrink: 0;"></span>Observability and on-call design</span>
+                  </div>
+                  <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 8px;">Explore the practice →</span>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+                <div style="height: 170px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF;">coverage report · real screenshot</div>
+                <div style="padding: 26px; display: flex; flex-direction: column; gap: 12px;">
+                  <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.01em;">Quality Engineering</div>
+                  <div style="height: 10px; width: 90%; background: #DDE0E5; border-radius: 3px;"></div>
+                  <div style="height: 10px; width: 72%; background: #DDE0E5; border-radius: 3px;"></div>
+                  <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+                    <span style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #0B2447;"><span style="width: 18px; height: 18px; border: 1.7px solid #1D4ED8; border-radius: 4px; flex-shrink: 0;"></span>Test automation you can trust</span>
+                    <span style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #0B2447;"><span style="width: 18px; height: 18px; border: 1.7px solid #1D4ED8; border-radius: 4px; flex-shrink: 0;"></span>Performance and load</span>
+                    <span style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #0B2447;"><span style="width: 18px; height: 18px; border: 1.7px solid #1D4ED8; border-radius: 4px; flex-shrink: 0;"></span>Security and accessibility audits</span>
+                  </div>
+                  <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 8px;">Explore the practice →</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border-top: 1px solid #E5E7EB; padding: 60px 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 48px; align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #1D4ED8;">How we work</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.02em; line-height: 1.1; max-width: 20ch;">Three steps, and you keep everything</span>
+              <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 6px;">
+                <div style="display: flex; gap: 14px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #1D4ED8; padding-top: 3px;">01</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Assess</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Two weeks in your pipeline. Findings are yours either way.</span></div></div>
+                <div style="display: flex; gap: 14px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9CA3AF; padding-top: 3px;">02</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Embed</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Our engineers join your standups, repo and on-call.</span></div></div>
+                <div style="display: flex; gap: 14px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9CA3AF; padding-top: 3px;">03</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Hand back</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Documented and owned by your team, not dependent on ours.</span></div></div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+              <div style="background: #0B2447; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px; color: #F7F8FA;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Global FinTech</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 42px; line-height: 1; letter-spacing: -0.03em; color: #EF8F22;">94%</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.35;">fewer release rollbacks</span>
+              </div>
+              <div style="background: #0B2447; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px; color: #F7F8FA;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Series B SaaS</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 42px; line-height: 1; letter-spacing: -0.03em; color: #EF8F22;">6 hrs</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.35;">saved per engineer, per week</span>
+              </div>
+              <div style="background: #FFF7ED; border: 1px solid #FBD9A8; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px; grid-column: span 2;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #B45309;">In their words</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px; line-height: 1.4; color: #0B2447;">“They fixed the thing we were embarrassed about and then taught us how it worked.”</span>
+                <span style="font-size: 13px; color: #6B7280;">VP Engineering · healthcare platform · named quote pending approval</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 56px 40px; display: flex; flex-direction: column; gap: 24px;">
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em;">Open roles right now</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #0B2447; border-bottom: 1px solid #D6D9DE; padding-bottom: 3px;">All 24 roles →</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px;">Senior Platform Engineer</span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 6px 12px;">Remote · US</span>
+                  <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 6px 12px;">$165–195k</span>
+                </div>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280;">Posted 3 days ago</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px;">QA Automation Lead</span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 6px 12px;">Hybrid · Dallas</span>
+                  <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 6px 12px;">$140–160k</span>
+                </div>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280;">Posted 1 week ago</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px;">Site Reliability Engineer</span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 6px 12px;">Remote · EU</span>
+                  <span style="font-size: 13px; color: #0B2447; background: #F1F2F4; border-radius: 999px; padding: 6px 12px;">€95–115k</span>
+                </div>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280;">Posted 2 weeks ago</span>
+              </div>
+            </div>
+            <div style="border: 1px dashed #C3C7CE; border-radius: 6px; padding: 10px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280;">Salary shown on every card. Non-negotiable for the job-seeker audience.</div>
+          </div>
+
+          <div style="background: #0B2447; padding: 60px 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; color: #F7F8FA;">
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.02em; line-height: 1.1; max-width: 26ch;">Thirty minutes with an engineer. No deck, no pressure.</span>
+              <span style="font-size: 16px; color: rgba(255,255,255,0.7); max-width: 52ch;">If we're not the right fit we'll say so on the call.</span>
+            </div>
+            <div style="display: flex; gap: 12px; flex-shrink: 0;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px;">Book a call</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #F7F8FA; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; padding: 15px 24px;">Email us instead</span>
+            </div>
+          </div>
+
+          <div style="background: #0B2447; border-top: 1px solid rgba(255,255,255,0.14); padding: 36px 40px; display: flex; justify-content: space-between; gap: 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.5);">
+            <span>Footer — four columns, per design system</span>
+            <span>© 2026 Vensiti · Privacy · Terms · Accessibility</span>
+          </div>
+        </div>
+
+        <div style="width: 390px; background: #F7F8FA; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden; flex-shrink: 0;">
+          <div style="height: 56px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; background: #FFFFFF; border-bottom: 1px solid #E5E7EB;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.02em;">Vensiti</span>
+            <div style="display: flex; flex-direction: column; gap: 5px; width: 24px;">
+              <span style="height: 2px; background: #0B2447;"></span>
+              <span style="height: 2px; background: #0B2447;"></span>
+            </div>
+          </div>
+          <div style="padding: 36px 20px 32px; display: flex; flex-direction: column; gap: 22px;">
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px; line-height: 1.06; letter-spacing: -0.025em;">Tell us who you are and we'll get out of your way</div>
+            <div style="font-size: 16px; line-height: 1.6; color: #3F4A57;">DevOps and quality engineering, delivered by people you can talk to directly.</div>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 6px;"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px;">Releases keep breaking</span>
+                <span style="height: 9px; width: 80%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8;">Services →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 999px;"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px;">I need engineers now</span>
+                <span style="height: 9px; width: 70%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8;">Hire talent →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; transform: rotate(45deg);"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px;">Looking for a role</span>
+                <span style="height: 9px; width: 76%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8;">Open roles →</span>
+              </div>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; padding: 26px 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px;">
+            <div style="border-left: 2px solid #EF8F22; padding-left: 12px; display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.02em;">97%</span>
+              <span style="font-size: 12px; color: #6B7280;">retention at 12 months</span>
+            </div>
+            <div style="border-left: 1px solid #E5E7EB; padding-left: 12px; display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.02em;">4×</span>
+              <span style="font-size: 12px; color: #6B7280;">faster releases</span>
+            </div>
+            <div style="border-left: 1px solid #E5E7EB; padding-left: 12px; display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.02em;">11 yrs</span>
+              <span style="font-size: 12px; color: #6B7280;">avg. experience</span>
+            </div>
+            <div style="border-left: 1px solid #E5E7EB; padding-left: 12px; display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.02em;">SOC 2</span>
+              <span style="font-size: 12px; color: #6B7280;">aligned practices</span>
+            </div>
+          </div>
+          <div style="padding: 32px 20px; display: flex; flex-direction: column; gap: 16px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em;">Two practices, one team</span>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden;">
+              <div style="height: 120px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF;">pipeline diagram</div>
+              <div style="padding: 20px; display: flex; flex-direction: column; gap: 9px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px;">DevOps &amp; Cloud</span>
+                <span style="height: 9px; width: 92%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="height: 9px; width: 74%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 4px;">Explore →</span>
+              </div>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden;">
+              <div style="height: 120px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF;">coverage report</div>
+              <div style="padding: 20px; display: flex; flex-direction: column; gap: 9px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px;">Quality Engineering</span>
+                <span style="height: 9px; width: 88%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="height: 9px; width: 68%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8; margin-top: 4px;">Explore →</span>
+              </div>
+            </div>
+          </div>
+          <div style="background: #0B2447; padding: 32px 20px; display: flex; flex-direction: column; gap: 14px; color: #F7F8FA;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15; letter-spacing: -0.02em;">Thirty minutes with an engineer.</span>
+            <span style="font-size: 15px; color: rgba(255,255,255,0.7);">No deck, no pressure.</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 20px; text-align: center;">Book a call</span>
+          </div>
+          <div style="background: #0B2447; border-top: 1px solid rgba(255,255,255,0.14); padding: 24px 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5);">Footer — stacked accordions</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="1e" style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: #0B2447; background: #EF8F22; border-radius: 4px; padding: 5px 10px;">1e</span>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Services overview</span>
+      </div>
+      <div style="display: flex; gap: 32px; align-items: flex-start;">
+        <div style="width: 1280px; flex-shrink: 0; background: #F7F8FA; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden;">
+          <div style="height: 68px; padding: 0 40px; display: flex; align-items: center; gap: 34px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em;">Vensiti</span>
+            <div style="display: flex; gap: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 14px; color: #3F4A57;">
+              <span style="font-weight: 600; color: #0B2447; border-bottom: 2px solid #EF8F22; padding-bottom: 3px;">Services ▾</span><span>Hire Talent</span><span>Jobs</span><span>How We Work</span><span>Insights</span><span>About</span>
+            </div>
+            <span style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 11px 18px;">Contact us</span>
+          </div>
+          <div style="padding: 56px 40px 44px; display: flex; flex-direction: column; gap: 18px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280;">Home / Services</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.06; letter-spacing: -0.025em; max-width: 24ch;">Start with the problem, not the service list</span>
+            <span style="font-size: 18px; line-height: 1.6; color: #3F4A57; max-width: 62ch;">Pick the sentence that sounds like your week. We'll show you what we'd actually do about it.</span>
+          </div>
+          <div style="padding: 44px 40px; display: flex; flex-direction: column; gap: 20px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Symptom → practice</span>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                <span style="font-size: 17px; color: #0B2447;">“Deploys take an afternoon and someone babysits them.”</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #1D4ED8; white-space: nowrap;">DevOps →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                <span style="font-size: 17px; color: #0B2447;">“The test suite is red and nobody trusts it.”</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #1D4ED8; white-space: nowrap;">Quality →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                <span style="font-size: 17px; color: #0B2447;">“Cloud bill doubled and nobody knows why.”</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #1D4ED8; white-space: nowrap;">DevOps →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                <span style="font-size: 17px; color: #0B2447;">“We need three senior engineers by next quarter.”</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #1D4ED8; white-space: nowrap;">Hire Talent →</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px 40px 52px; display: flex; flex-direction: column; gap: 24px;">
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 34px; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: center;">
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #1D4ED8;">Practice 01</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em;">DevOps &amp; Cloud Engineering</span>
+                <span style="height: 10px; width: 92%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="height: 10px; width: 78%; background: #DDE0E5; border-radius: 3px;"></span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px;">
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 7px 11px;">Kubernetes</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 7px 11px;">Terraform</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 7px 11px;">GitHub Actions</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 7px 11px;">AWS · GCP</span>
+                </div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 14px 22px; align-self: flex-start; margin-top: 10px;">See what we'd do</span>
+              </div>
+              <div style="height: 200px; border-radius: 8px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF;">pipeline diagram</div>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 34px; display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 40px; align-items: center;">
+              <div style="height: 200px; border-radius: 8px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF;">coverage report</div>
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #1D4ED8;">Practice 02</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em;">Quality Engineering</span>
+                <span style="height: 10px; width: 90%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="height: 10px; width: 72%; background: #DDE0E5; border-radius: 3px;"></span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px;">
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 7px 11px;">Playwright</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 7px 11px;">k6</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 7px 11px;">WCAG 2.2</span>
+                </div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 14px 22px; align-self: flex-start; margin-top: 10px;">See what we'd do</span>
+              </div>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-top: 1px solid #E5E7EB; padding: 52px 40px; display: flex; flex-direction: column; gap: 22px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em;">Three ways to work with us</span>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+              <div style="border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px;">Staff augmentation</span>
+                <span style="height: 9px; width: 88%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="height: 9px; width: 64%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; margin-top: 6px;">Best when: you know what you need</span>
+              </div>
+              <div style="border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px;">Managed pod</span>
+                <span style="height: 9px; width: 84%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="height: 9px; width: 70%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; margin-top: 6px;">Best when: you need an outcome owned</span>
+              </div>
+              <div style="border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px;">Project delivery</span>
+                <span style="height: 9px; width: 86%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="height: 9px; width: 60%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6B7280; margin-top: 6px;">Best when: fixed scope, fixed date</span>
+              </div>
+            </div>
+          </div>
+          <div style="background: #0B2447; padding: 52px 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; color: #F7F8FA;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em; max-width: 28ch; line-height: 1.12;">Not sure which one you need? Neither are most people on the first call.</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px; flex-shrink: 0;">Talk it through</span>
+          </div>
+        </div>
+
+        <div style="width: 390px; background: #F7F8FA; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden; flex-shrink: 0;">
+          <div style="height: 56px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; background: #FFFFFF; border-bottom: 1px solid #E5E7EB;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 17px;">Vensiti</span>
+            <div style="display: flex; flex-direction: column; gap: 5px; width: 24px;"><span style="height: 2px; background: #0B2447;"></span><span style="height: 2px; background: #0B2447;"></span></div>
+          </div>
+          <div style="padding: 32px 20px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280;">Home / Services</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1; letter-spacing: -0.02em;">Start with the problem, not the service list</span>
+            <span style="font-size: 15px; line-height: 1.6; color: #3F4A57;">Pick the sentence that sounds like your week.</span>
+          </div>
+          <div style="padding: 26px 20px; display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Symptom → practice</span>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 16px; color: #0B2447;">“Deploys take an afternoon.”</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #1D4ED8;">DevOps →</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 16px; color: #0B2447;">“Test suite is red.”</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #1D4ED8;">Quality →</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 16px; color: #0B2447;">“Need 3 seniors next quarter.”</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #1D4ED8;">Hire Talent →</span>
+            </div>
+          </div>
+          <div style="padding: 8px 20px 30px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden;">
+              <div style="height: 120px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF;">pipeline diagram</div>
+              <div style="padding: 20px; display: flex; flex-direction: column; gap: 9px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8;">Practice 01</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 21px;">DevOps &amp; Cloud</span>
+                <span style="height: 9px; width: 90%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="height: 9px; width: 72%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 13px 18px; text-align: center; margin-top: 6px;">See what we'd do</span>
+              </div>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden;">
+              <div style="height: 120px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF;">coverage report</div>
+              <div style="padding: 20px; display: flex; flex-direction: column; gap: 9px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8;">Practice 02</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 21px;">Quality Engineering</span>
+                <span style="height: 9px; width: 88%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="height: 9px; width: 66%; background: #DDE0E5; border-radius: 3px;"></span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 13px 18px; text-align: center; margin-top: 6px;">See what we'd do</span>
+              </div>
+            </div>
+          </div>
+          <div style="background: #0B2447; padding: 30px 20px; display: flex; flex-direction: column; gap: 14px; color: #F7F8FA;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.18; letter-spacing: -0.02em;">Not sure which one you need?</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 20px; text-align: center;">Talk it through</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1f" style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: #0B2447; background: #EF8F22; border-radius: 4px; padding: 5px 10px;">1f</span>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Service detail — DevOps &amp; Cloud Engineering</span>
+      </div>
+      <div style="display: flex; gap: 32px; align-items: flex-start;">
+        <div style="width: 1280px; flex-shrink: 0; background: #F7F8FA; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden;">
+          <div style="height: 68px; padding: 0 40px; display: flex; align-items: center; gap: 34px; background: #0B2447; color: #F7F8FA;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em;">Vensiti</span>
+            <div style="display: flex; gap: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 14px; color: rgba(255,255,255,0.82);">
+              <span style="color: #EF8F22;">Services ▾</span><span>Hire Talent</span><span>Jobs</span><span>How We Work</span><span>Insights</span><span>About</span>
+            </div>
+            <span style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 11px 18px;">Contact us</span>
+          </div>
+          <div style="background: #0B2447; color: #F7F8FA; padding: 60px 40px 66px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); gap: 48px; align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.55);">Home / Services / DevOps &amp; Cloud Engineering</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 46px; line-height: 1.05; letter-spacing: -0.03em; max-width: 22ch;">Shipping should be boring</span>
+              <span style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.72); max-width: 54ch;">We make deploys routine: automated, observable, and reversible in one command. Then we teach your team to run it without us.</span>
+              <div style="display: flex; gap: 12px; margin-top: 8px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px;">Book an assessment</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #F7F8FA; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; padding: 15px 24px;">See a sample report</span>
+              </div>
+            </div>
+            <div style="height: 260px; border-radius: 14px; background: repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 8px, rgba(255,255,255,0.02) 8px 16px); border: 1px solid rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.55);">illustrated pipeline · navy + one amber path</div>
+          </div>
+          <div style="background: #FFFFFF; padding: 44px 40px; border-bottom: 1px solid #E5E7EB; display: flex; flex-direction: column; gap: 20px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Symptoms we usually find</span>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+              <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 20px; height: 20px; border: 1.5px solid #B3402F; border-radius: 5px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 16px; line-height: 1.55; color: #3F4A57;">Releases need a named person to babysit them</span></div>
+              <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 20px; height: 20px; border: 1.5px solid #B3402F; border-radius: 5px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 16px; line-height: 1.55; color: #3F4A57;">Rollback is a manual, half-remembered procedure</span></div>
+              <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 20px; height: 20px; border: 1.5px solid #B3402F; border-radius: 5px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 16px; line-height: 1.55; color: #3F4A57;">Nobody can say what the cloud bill is buying</span></div>
+            </div>
+          </div>
+          <div style="padding: 52px 40px; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; align-items: start;">
+            <div style="display: flex; flex-direction: column; gap: 26px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.02em;">What we actually do</span>
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">CI/CD and release automation</span></div>
+                  <span style="height: 10px; width: 94%; background: #DDE0E5; border-radius: 3px;"></span>
+                  <span style="height: 10px; width: 78%; background: #DDE0E5; border-radius: 3px;"></span>
+                </div>
+                <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Infrastructure as code</span></div>
+                  <span style="height: 10px; width: 90%; background: #DDE0E5; border-radius: 3px;"></span>
+                  <span style="height: 10px; width: 66%; background: #DDE0E5; border-radius: 3px;"></span>
+                </div>
+                <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Observability and on-call design</span></div>
+                  <span style="height: 10px; width: 92%; background: #DDE0E5; border-radius: 3px;"></span>
+                  <span style="height: 10px; width: 72%; background: #DDE0E5; border-radius: 3px;"></span>
+                </div>
+                <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Cost and capacity review</span></div>
+                  <span style="height: 10px; width: 88%; background: #DDE0E5; border-radius: 3px;"></span>
+                  <span style="height: 10px; width: 62%; background: #DDE0E5; border-radius: 3px;"></span>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 20px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.015em;">The first two weeks, day by day</span>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                  <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #1D4ED8; padding-top: 3px; white-space: nowrap;">Day 1–3</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Read-only access, no changes</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">We watch a real release and take notes.</span></div></div>
+                  <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Day 4–8</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Interviews with your engineers</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Thirty minutes each. What hurts, in their words.</span></div></div>
+                  <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Day 9–10</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Findings, ranked by cost of not fixing</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Yours to keep, whether or not you continue.</span></div></div>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #0B2447; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 12px; color: #F7F8FA;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Global FinTech · Series C</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 46px; line-height: 1; letter-spacing: -0.03em; color: #EF8F22;">94%</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.35;">fewer release rollbacks in 5 months</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #EF8F22; margin-top: 4px;">Read the case study →</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Talk to the practice lead</span>
+                <div style="display: flex; gap: 14px; align-items: center;">
+                  <span style="width: 56px; height: 56px; border-radius: 999px; background: repeating-linear-gradient(135deg, #E7E9ED 0 6px, #F2F3F6 6px 12px); flex-shrink: 0;"></span>
+                  <div style="display: flex; flex-direction: column; gap: 3px;">
+                    <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Real name, real title</span>
+                    <span style="font-size: 13px; color: #6B7280;">Not a form. A person.</span>
+                  </div>
+                </div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 13px 18px; text-align: center; margin-top: 4px;">Book 30 minutes</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; border: 1px dashed #C3C7CE; border-radius: 4px; padding: 8px 10px;">Needs one real photo + name before launch</span>
+              </div>
+              <div style="background: #FFF7ED; border: 1px solid #FBD9A8; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px; color: #0B2447;">Related roles</span>
+                <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Hiring for this yourself? We have 6 platform engineers looking right now.</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8;">See candidates →</span>
+              </div>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-top: 1px solid #E5E7EB; padding: 48px 40px; display: flex; flex-direction: column; gap: 18px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.02em;">Questions people ask before signing</span>
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid #F1F2F4;"><span style="font-size: 17px; color: #0B2447;">What happens to our documentation when you leave?</span><span style="font-size: 18px; color: #9CA3AF;">+</span></div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid #F1F2F4;"><span style="font-size: 17px; color: #0B2447;">Do your engineers work in our repo or theirs?</span><span style="font-size: 18px; color: #9CA3AF;">+</span></div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid #F1F2F4;"><span style="font-size: 17px; color: #0B2447;">How do you handle access, secrets and compliance?</span><span style="font-size: 18px; color: #9CA3AF;">+</span></div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Can we stop after the assessment?</span><span style="font-size: 18px; color: #9CA3AF;">+</span></div>
+            </div>
+          </div>
+          <div style="background: #0B2447; padding: 52px 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; color: #F7F8FA;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em; max-width: 28ch; line-height: 1.12;">Two weeks, one engineer, findings you keep.</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px; flex-shrink: 0;">Book an assessment</span>
+          </div>
+        </div>
+
+        <div style="width: 390px; background: #F7F8FA; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden; flex-shrink: 0;">
+          <div style="height: 56px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; background: #0B2447; color: #F7F8FA;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 17px;">Vensiti</span>
+            <div style="display: flex; flex-direction: column; gap: 5px; width: 24px;"><span style="height: 2px; background: #F7F8FA;"></span><span style="height: 2px; background: #F7F8FA;"></span></div>
+          </div>
+          <div style="background: #0B2447; color: #F7F8FA; padding: 32px 20px 38px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.55);">Services / DevOps</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px; line-height: 1.06; letter-spacing: -0.025em;">Shipping should be boring</span>
+            <span style="font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.72);">Automated, observable, reversible in one command.</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 20px; text-align: center; margin-top: 6px;">Book an assessment</span>
+            <div style="height: 150px; border-radius: 8px; background: repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 8px, rgba(255,255,255,0.02) 8px 16px); border: 1px solid rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 8px;">illustrated pipeline</div>
+          </div>
+          <div style="background: #FFFFFF; padding: 26px 20px; border-bottom: 1px solid #E5E7EB; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Symptoms we find</span>
+            <div style="display: flex; gap: 10px;"><span style="width: 18px; height: 18px; border: 1.5px solid #B3402F; border-radius: 4px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 15px; line-height: 1.5; color: #3F4A57;">Releases need a babysitter</span></div>
+            <div style="display: flex; gap: 10px;"><span style="width: 18px; height: 18px; border: 1.5px solid #B3402F; border-radius: 4px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 15px; line-height: 1.5; color: #3F4A57;">Rollback is half-remembered</span></div>
+            <div style="display: flex; gap: 10px;"><span style="width: 18px; height: 18px; border: 1.5px solid #B3402F; border-radius: 4px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 15px; line-height: 1.5; color: #3F4A57;">Cloud bill unexplained</span></div>
+          </div>
+          <div style="padding: 28px 20px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em;">What we actually do</span>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 20px; height: 20px; border: 1.7px solid #1D4ED8; border-radius: 5px;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">CI/CD automation</span></div>
+              <span style="height: 9px; width: 88%; background: #DDE0E5; border-radius: 3px;"></span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 20px; height: 20px; border: 1.7px solid #1D4ED8; border-radius: 5px;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Infrastructure as code</span></div>
+              <span style="height: 9px; width: 74%; background: #DDE0E5; border-radius: 3px;"></span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 20px; height: 20px; border: 1.7px solid #1D4ED8; border-radius: 5px;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Observability</span></div>
+              <span style="height: 9px; width: 80%; background: #DDE0E5; border-radius: 3px;"></span>
+            </div>
+          </div>
+          <div style="padding: 0 20px 28px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="background: #0B2447; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 8px; color: #F7F8FA;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Global FinTech</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; letter-spacing: -0.03em; color: #EF8F22;">94%</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">fewer rollbacks</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Talk to the practice lead</span>
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <span style="width: 48px; height: 48px; border-radius: 999px; background: repeating-linear-gradient(135deg, #E7E9ED 0 6px, #F2F3F6 6px 12px); flex-shrink: 0;"></span>
+                <div style="display: flex; flex-direction: column; gap: 2px;">
+                  <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px;">Real name, real title</span>
+                  <span style="font-size: 13px; color: #6B7280;">Not a form. A person.</span>
+                </div>
+              </div>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 14px 18px; text-align: center;">Book 30 minutes</span>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-top: 1px solid #E5E7EB; padding: 26px 20px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; margin-bottom: 8px;">Questions people ask</span>
+            <div style="display: flex; justify-content: space-between; gap: 14px; padding: 16px 0; border-bottom: 1px solid #F1F2F4;"><span style="font-size: 16px;">Who owns the docs after?</span><span style="color: #9CA3AF;">+</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 14px; padding: 16px 0; border-bottom: 1px solid #F1F2F4;"><span style="font-size: 16px;">Our repo or yours?</span><span style="color: #9CA3AF;">+</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 14px; padding: 16px 0;"><span style="font-size: 16px;">Can we stop after 2 weeks?</span><span style="color: #9CA3AF;">+</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1g" style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: #0B2447; background: #EF8F22; border-radius: 4px; padding: 5px 10px;">1g</span>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Hire Talent</span>
+      </div>
+      <div style="display: flex; gap: 32px; align-items: flex-start;">
+        <div style="width: 1280px; flex-shrink: 0; background: #F7F8FA; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden;">
+          <div style="height: 68px; padding: 0 40px; display: flex; align-items: center; gap: 34px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em;">Vensiti</span>
+            <div style="display: flex; gap: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 14px; color: #3F4A57;">
+              <span>Services ▾</span><span style="font-weight: 600; color: #0B2447; border-bottom: 2px solid #EF8F22; padding-bottom: 3px;">Hire Talent</span><span>Jobs</span><span>How We Work</span><span>Insights</span><span>About</span>
+            </div>
+            <span style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 11px 18px;">Contact us</span>
+          </div>
+          <div style="background: #FFFFFF; padding: 56px 40px 60px; border-bottom: 1px solid #E5E7EB; display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 48px; align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #1D4ED8;">Hire talent</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.06; letter-spacing: -0.025em; max-width: 22ch;">People we'd hire ourselves, available in two weeks</span>
+              <span style="font-size: 18px; line-height: 1.6; color: #3F4A57; max-width: 56ch;">We send three candidates, not thirty CVs. Each one has been interviewed by an engineer who does the same job.</span>
+              <div style="display: flex; gap: 12px; margin-top: 8px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 15px 24px;">Tell us what you need</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #0B2447; border: 1px solid #D6D9DE; border-radius: 999px; padding: 15px 24px;">How our vetting works</span>
+              </div>
+            </div>
+            <div style="height: 280px; border-radius: 14px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: flex-end; padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF;">candid photo — two people pairing at a real screen</div>
+          </div>
+          <div style="padding: 48px 40px; display: flex; flex-direction: column; gap: 22px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.02em;">How the vetting works</span>
+            <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px;">
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #1D4ED8;">01</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 18px;">Intake call</span>
+                <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Forty minutes on the actual work, not a job spec.</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9CA3AF;">02</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 18px;">Engineer screen</span>
+                <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">A senior in the same discipline runs the technical call.</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9CA3AF;">03</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 18px;">Three profiles</span>
+                <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">With notes on where each is strong and where they're not.</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9CA3AF;">04</span>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 18px;">You decide</span>
+                <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Replacement inside 30 days if the fit is wrong.</span>
+              </div>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; padding: 48px 40px; display: flex; flex-direction: column; gap: 22px;">
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em;">Available now, anonymized</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; border: 1px dashed #C3C7CE; border-radius: 4px; padding: 8px 12px;">no names, no photos — candidate privacy first</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+              <div style="border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px;">Platform engineer · 9 yrs</span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 10px;">K8s</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 10px;">Terraform</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 10px;">Go</span>
+                </div>
+                <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Available in 2 weeks · Remote US · Contract or perm</span>
+              </div>
+              <div style="border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px;">QA automation lead · 7 yrs</span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 10px;">Playwright</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 10px;">CI</span>
+                </div>
+                <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Available now · Hybrid Dallas · Perm only</span>
+              </div>
+              <div style="border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 19px;">SRE · 11 yrs</span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 10px;">AWS</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 10px;">Observability</span>
+                </div>
+                <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Available in 4 weeks · Remote EU · Contract</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 48px 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start;">
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.02em;">What it costs, plainly</span>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid #F1F2F4;"><span style="font-size: 16px; color: #3F4A57;">Contract placement</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; color: #0B2447;">hourly margin, disclosed</span></div>
+                <div style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid #F1F2F4;"><span style="font-size: 16px; color: #3F4A57;">Permanent placement</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; color: #0B2447;">% of first-year salary</span></div>
+                <div style="display: flex; justify-content: space-between; gap: 16px;"><span style="font-size: 16px; color: #3F4A57;">Replacement window</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; color: #0B2447;">30 days, no fee</span></div>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6B7280; border: 1px dashed #C3C7CE; border-radius: 4px; padding: 8px 10px; margin-top: 4px;">Real numbers go here — vagueness reads as hiding something</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.02em;">Start the brief</span>
+              <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 16px;">
+                <div style="display: flex; flex-direction: column; gap: 7px;">
+                  <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px;">Role you're hiring for</span>
+                  <span style="height: 46px; border: 1px solid #D6D9DE; border-radius: 999px;"></span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;">
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px;">Start date</span>
+                    <span style="height: 46px; border: 1px solid #D6D9DE; border-radius: 999px;"></span>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px;">Work email</span>
+                    <span style="height: 46px; border: 1px solid #D6D9DE; border-radius: 999px;"></span>
+                  </div>
+                </div>
+                <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 15px 22px; text-align: center;">Send the brief</span>
+                <span style="font-size: 13px; color: #6B7280; text-align: center;">Three fields. A person replies within one business day.</span>
+              </div>
+            </div>
+          </div>
+          <div style="background: #0B2447; padding: 52px 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; color: #F7F8FA;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em; max-width: 30ch; line-height: 1.12;">Hiring is easier when someone technical has already asked the hard questions.</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px; flex-shrink: 0;">Tell us what you need</span>
+          </div>
+        </div>
+
+        <div style="width: 390px; background: #F7F8FA; border: 1px solid #DDE0E5; border-radius: 12px; overflow: hidden; flex-shrink: 0;">
+          <div style="height: 56px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; background: #FFFFFF; border-bottom: 1px solid #E5E7EB;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 17px;">Vensiti</span>
+            <div style="display: flex; flex-direction: column; gap: 5px; width: 24px;"><span style="height: 2px; background: #0B2447;"></span><span style="height: 2px; background: #0B2447;"></span></div>
+          </div>
+          <div style="background: #FFFFFF; padding: 32px 20px; border-bottom: 1px solid #E5E7EB; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #1D4ED8;">Hire talent</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.08; letter-spacing: -0.025em;">People we'd hire ourselves, in two weeks</span>
+            <span style="font-size: 16px; line-height: 1.6; color: #3F4A57;">Three candidates, not thirty CVs.</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 15px 20px; text-align: center; margin-top: 4px;">Tell us what you need</span>
+            <div style="height: 170px; border-radius: 8px; background: repeating-linear-gradient(135deg, #E7E9ED 0 10px, #F2F3F6 10px 20px); display: flex; align-items: flex-end; padding: 14px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #9CA3AF; margin-top: 8px;">candid photo — pairing at a screen</div>
+          </div>
+          <div style="padding: 28px 20px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em;">How vetting works</span>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #1D4ED8;">01</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Intake call</span>
+              <span style="font-size: 15px; color: #3F4A57; line-height: 1.5;">Forty minutes on the actual work.</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF;">02</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Engineer screen</span>
+              <span style="font-size: 15px; color: #3F4A57; line-height: 1.5;">Run by a senior in the same discipline.</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF;">03</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Three profiles</span>
+              <span style="font-size: 15px; color: #3F4A57; line-height: 1.5;">Strengths and gaps, both written down.</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF;">04</span>
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">You decide</span>
+              <span style="font-size: 15px; color: #3F4A57; line-height: 1.5;">Replacement inside 30 days.</span>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-top: 1px solid #E5E7EB; padding: 28px 20px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em;">Available now</span>
+            <div style="border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">Platform engineer · 9 yrs</span>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 9px;">K8s</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 9px;">Terraform</span>
+              </div>
+              <span style="font-size: 14px; color: #3F4A57;">2 weeks · Remote US</span>
+            </div>
+            <div style="border: 1px solid #E5E7EB; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+              <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px;">SRE · 11 yrs</span>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #0B2447; border: 1px solid #E5E7EB; border-radius: 4px; padding: 6px 9px;">AWS</span>
+              </div>
+              <span style="font-size: 14px; color: #3F4A57;">4 weeks · Remote EU</span>
+            </div>
+          </div>
+          <div style="background: #0B2447; padding: 30px 20px; display: flex; flex-direction: column; gap: 14px; color: #F7F8FA;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.18; letter-spacing: -0.02em;">Someone technical asks the hard questions first.</span>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 20px; text-align: center;">Tell us what you need</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+</x-dc>
+</body>
+</html>
