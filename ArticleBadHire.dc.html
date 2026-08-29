@@ -45,7 +45,81 @@
     [style*="font-size: 42px"] { font-size: 28px !important; }
     [style*="font-size: 20px; line-height: 1.65"] { font-size: 18px !important; }
   }
-</style>
+
+  /* Mega-menu navigation */
+  .nav-item { display: flex; align-items: center; }
+  .nav-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 15px; white-space: nowrap;
+    color: rgba(255,255,255,0.88); background: none; border: none; cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;
+    border-radius: 8px; transition: color 180ms ease, background 180ms ease;
+  }
+  .nav-link:hover { color: #FFFFFF; }
+  .nav-link.is-active { color: #F5A02A; background: #123163; font-weight: 600; }
+  .nav-trigger[aria-expanded="true"] { color: #FFFFFF; background: rgba(255,255,255,0.1); }
+  .nav-chevron { transition: transform 180ms ease; opacity: 0.75; flex-shrink: 0; }
+  .nav-trigger[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
+  .nav-link:focus-visible, .mega-link:focus-visible, .mega-featured-cta:focus-visible {
+    outline: 2px solid #F5A02A; outline-offset: 2px;
+  }
+
+  .mega-dropdown {
+    position: absolute; top: calc(100% + 12px); left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    width: min(900px, calc(100vw - 48px));
+    background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 16px;
+    box-shadow: 0 20px 44px -16px rgba(11,36,71,0.22);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+    z-index: 30;
+  }
+  .mega-dropdown.is-open {
+    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto;
+  }
+  .mega-dropdown-inner { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 26px; }
+  .mega-col { display: flex; flex-direction: column; gap: 2px; }
+  .mega-col-title {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #9CA3AF; padding: 2px 12px 10px;
+  }
+  .mega-link {
+    display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 10px;
+    color: #0F172A; text-decoration: none; transition: background 150ms ease;
+  }
+  .mega-link:hover, .mega-link:focus-visible { background: #F7F8FA; color: #0F172A; }
+  .mega-link-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14.5px; }
+  .mega-link-desc { font-size: 12.5px; color: #6B7280; line-height: 1.4; }
+  .mega-featured {
+    background: #0B2447; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;
+  }
+  .mega-featured-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.3; }
+  .mega-featured-desc { font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,0.72); }
+  .mega-featured-cta {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #0B2447;
+    background: #EF8F22; border-radius: 999px; padding: 10px 16px; text-align: center; text-decoration: none; margin-top: 6px;
+  }
+  .mega-featured-cta:hover { background: #D97C10; color: #0B2447; }
+
+  @media (max-width: 900px) {
+    .nav-item { width: 100%; }
+    .nav-link { width: 100%; justify-content: space-between; }
+    .mega-dropdown {
+      position: static; transform: none !important; width: 100%; max-height: 0; overflow: hidden;
+      background: transparent; border: none; border-radius: 0; box-shadow: none;
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transition: max-height 220ms ease;
+    }
+    .mega-dropdown.is-open { max-height: 700px; }
+    .mega-dropdown-inner { grid-template-columns: 1fr; padding: 2px 6px 12px 18px; gap: 0; }
+    .mega-col-title { color: rgba(255,255,255,0.45); padding: 10px 10px 4px; }
+    .mega-link { color: rgba(255,255,255,0.85); padding: 9px 10px; }
+    .mega-link:hover, .mega-link:focus-visible { background: rgba(255,255,255,0.08); color: #FFFFFF; }
+    .mega-link-desc { display: none; }
+    .mega-featured { display: none; }
+  }
+
+  </style>
 </helmet>
 
 <div style="font-family: 'Inter', system-ui, sans-serif; color: #0F172A;">
@@ -62,14 +136,202 @@
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;" />
 
-      <nav class="site-nav" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;">
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Home</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Services</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Hire Talent</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Jobs</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">How We Work</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: #F5A02A; background: #123163; border-radius: 8px; font-weight: 600;">Insights</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">About</a>
+      <nav class="site-nav" aria-label="Primary" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;">
+        <a href="#home" class="nav-link" style="white-space: nowrap;">Home</a>
+        <div class="nav-item has-dropdown" data-menu="services">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-services" style="white-space: nowrap;">
+          Services
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-services" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Practices</span>
+              <a href="#devops" class="mega-link" role="menuitem" id="menu-services-l0">
+              <span class="mega-link-title">DevOps & Cloud Engineering</span>
+              <span class="mega-link-desc">Automated, observable, reversible deploys.</span>
+            </a>
+              <a href="#testing" class="mega-link" role="menuitem" id="menu-services-l1">
+              <span class="mega-link-title">Quality Engineering</span>
+              <span class="mega-link-desc">Testing that catches what manual QA misses.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Explore</span>
+              <a href="#services" class="mega-link" role="menuitem" id="menu-services-l0">
+              <span class="mega-link-title">Services Overview</span>
+              <span class="mega-link-desc">Start with the problem, not the service list.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-services-l1">
+              <span class="mega-link-title">How We Work</span>
+              <span class="mega-link-desc">Four engagement models, matched to your challenge.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">Not sure which one you need?</span>
+              <span class="mega-featured-desc">Neither are most people on the first call.</span>
+              <a href="#contact" class="mega-featured-cta" role="menuitem">Talk it through →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="nav-item has-dropdown" data-menu="hire-talent">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-hire-talent" style="white-space: nowrap;">
+          Hire Talent
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-hire-talent" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">For employers</span>
+              <a href="#hire-talent" class="mega-link" role="menuitem" id="menu-hire-talent-l0">
+              <span class="mega-link-title">Hire Talent</span>
+              <span class="mega-link-desc">Three vetted candidates in two weeks, not thirty CVs.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-hire-talent-l1">
+              <span class="mega-link-title">How We Work</span>
+              <span class="mega-link-desc">Engagement models for bringing in specialist skills.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">For candidates</span>
+              <a href="#jobs" class="mega-link" role="menuitem" id="menu-hire-talent-l0">
+              <span class="mega-link-title">Browse Jobs</span>
+              <span class="mega-link-desc">Curated roles with published salary ranges.</span>
+            </a>
+              <a href="#submit-cv" class="mega-link" role="menuitem" id="menu-hire-talent-l1">
+              <span class="mega-link-title">Submit Your CV</span>
+              <span class="mega-link-desc">One form, read by a person, not a filter.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">97% placement retention</span>
+              <span class="mega-featured-desc">At 12 months, across every placement we’ve made.</span>
+              <a href="#contact" class="mega-featured-cta" role="menuitem">Tell us what you need →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <a href="#jobs" class="nav-link" style="white-space: nowrap;">Jobs</a>
+        <div class="nav-item has-dropdown" data-menu="how-we-work">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-how-we-work" style="white-space: nowrap;">
+          How We Work
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-how-we-work" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Engagement models</span>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l0">
+              <span class="mega-link-title">Project Based</span>
+              <span class="mega-link-desc">Fixed scope, fixed outcomes, milestone delivery.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l1">
+              <span class="mega-link-title">Time & Materials</span>
+              <span class="mega-link-desc">Flexible capacity for evolving scope.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">&nbsp;</span>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l0">
+              <span class="mega-link-title">Dedicated Team</span>
+              <span class="mega-link-desc">A team fully committed to your objectives.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l1">
+              <span class="mega-link-title">Staff Augmentation</span>
+              <span class="mega-link-desc">Specialist skills embedded, faster than hiring.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">From first call to kickoff</span>
+              <span class="mega-featured-desc">Engineers matched and onboarded within days, not weeks.</span>
+              <a href="#how-we-work" class="mega-featured-cta" role="menuitem">See how it works →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="nav-item has-dropdown" data-menu="insights">
+        <button type="button" class="nav-link nav-trigger is-active" aria-haspopup="true" aria-expanded="false" aria-controls="menu-insights" style="white-space: nowrap;">
+          Insights
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-insights" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Latest articles</span>
+              <a href="#article-pull-delivery" class="mega-link" role="menuitem" id="menu-insights-l0">
+              <span class="mega-link-title">Pull-based delivery</span>
+              <span class="mega-link-desc">Why platform teams are betting on it.</span>
+            </a>
+              <a href="#article-bad-hire" class="mega-link" role="menuitem" id="menu-insights-l1">
+              <span class="mega-link-title">The cost of a bad hire</span>
+              <span class="mega-link-desc">Hidden costs, and how to avoid them.</span>
+            </a>
+              <a href="#article-staff-engineer" class="mega-link" role="menuitem" id="menu-insights-l2">
+              <span class="mega-link-title">Senior dev to staff engineer</span>
+              <span class="mega-link-desc">The skills that actually matter.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">More reading</span>
+              <a href="#article-cloud-bill" class="mega-link" role="menuitem" id="menu-insights-l0">
+              <span class="mega-link-title">Why your cloud bill climbs</span>
+              <span class="mega-link-desc">And what to do about it.</span>
+            </a>
+              <a href="#article-technical-screens" class="mega-link" role="menuitem" id="menu-insights-l1">
+              <span class="mega-link-title">Technical screens that work</span>
+              <span class="mega-link-desc">A hiring manager's guide.</span>
+            </a>
+              <a href="#article-retention" class="mega-link" role="menuitem" id="menu-insights-l2">
+              <span class="mega-link-title">90-day retention hires</span>
+              <span class="mega-link-desc">What separates a good one from a bad one.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">Thinking that moves you forward</span>
+              <span class="mega-featured-desc">Notes on engineering practice, hiring, and careers.</span>
+              <a href="#insights" class="mega-featured-cta" role="menuitem">View all Insights →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="nav-item has-dropdown" data-menu="about">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-about" style="white-space: nowrap;">
+          About
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-about" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Company</span>
+              <a href="#about" class="mega-link" role="menuitem" id="menu-about-l0">
+              <span class="mega-link-title">About Vensiti</span>
+              <span class="mega-link-desc">Two practices, one standard.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-about-l1">
+              <span class="mega-link-title">How We Work</span>
+              <span class="mega-link-desc">Engagement models built around your challenge.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Careers</span>
+              <a href="#jobs" class="mega-link" role="menuitem" id="menu-about-l0">
+              <span class="mega-link-title">Open Roles</span>
+              <span class="mega-link-desc">Browse curated engineering roles.</span>
+            </a>
+              <a href="#submit-cv" class="mega-link" role="menuitem" id="menu-about-l1">
+              <span class="mega-link-title">Submit Your CV</span>
+              <span class="mega-link-desc">We'll keep it on file and reach out.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">Trusted across industries</span>
+              <span class="mega-featured-desc">FinTech, Healthcare, B2B SaaS, Retail, Logistics, Public sector.</span>
+              <a href="#contact" class="mega-featured-cta" role="menuitem">Get in touch →</a>
+            </div>
+          </div>
+        </div>
+      </div>
       </nav>
 
       <a href="#" class="contact-cta" style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 14px 24px; white-space: nowrap;" style-hover="background: #D97C10; color: #0B2447;">Contact US</a>
@@ -187,6 +449,82 @@
     </div>
   </footer>
 </div>
+<script>
+
+  // Mega-menu navigation: hover (desktop), click/tap, keyboard, Escape, single-open-at-a-time.
+  (function () {
+    var activeItem = null;
+    var closeTimer = null;
+
+    function isDesktop() { return window.innerWidth > 900; }
+
+    function setOpen(item, open) {
+      var trigger = item.querySelector('.nav-trigger');
+      var panel = item.querySelector('.mega-dropdown');
+      if (trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (panel) panel.classList.toggle('is-open', open);
+    }
+
+    function closeItem(item) {
+      if (!item) return;
+      setOpen(item, false);
+      if (activeItem === item) activeItem = null;
+    }
+
+    function openItem(item) {
+      if (activeItem && activeItem !== item) closeItem(activeItem);
+      setOpen(item, true);
+      activeItem = item;
+    }
+
+    var navItems = document.querySelectorAll('.nav-item.has-dropdown');
+    navItems.forEach(function (item) {
+      var trigger = item.querySelector('.nav-trigger');
+      var panel = item.querySelector('.mega-dropdown');
+      if (!trigger || !panel) return;
+
+      function cancelClose() { clearTimeout(closeTimer); }
+      function scheduleClose() {
+        closeTimer = setTimeout(function () { closeItem(item); }, 180);
+      }
+
+      item.addEventListener('mouseenter', function () { if (isDesktop()) { cancelClose(); openItem(item); } });
+      item.addEventListener('mouseleave', function () { if (isDesktop()) scheduleClose(); });
+      panel.addEventListener('mouseenter', cancelClose);
+      panel.addEventListener('mouseleave', function () { if (isDesktop()) scheduleClose(); });
+
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        if (isOpen) { closeItem(item); } else { openItem(item); }
+      });
+
+      item.addEventListener('focusin', function () { cancelClose(); if (isDesktop()) openItem(item); });
+      item.addEventListener('focusout', function () {
+        closeTimer = setTimeout(function () {
+          if (!item.contains(document.activeElement)) closeItem(item);
+        }, 60);
+      });
+
+      panel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { closeItem(item); });
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && activeItem) {
+        var trigger = activeItem.querySelector('.nav-trigger');
+        closeItem(activeItem);
+        if (trigger) trigger.focus();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (activeItem && !activeItem.contains(e.target)) closeItem(activeItem);
+    });
+  })();
+
+</script>
 </x-dc>
 </body>
 </html>

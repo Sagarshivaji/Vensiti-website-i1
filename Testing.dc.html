@@ -21,9 +21,84 @@
   details .plus { transition: transform 150ms ease; }
   details[open] .plus { transform: rotate(45deg); }
 
+  /* Mega-menu navigation */
+  .nav-item { display: flex; align-items: center; }
+  .nav-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 15px; white-space: nowrap;
+    color: rgba(255,255,255,0.88); background: none; border: none; cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;
+    border-radius: 8px; transition: color 180ms ease, background 180ms ease;
+  }
+  .nav-link:hover { color: #FFFFFF; }
+  .nav-link.is-active { color: #F5A02A; background: #123163; font-weight: 600; }
+  .nav-trigger[aria-expanded="true"] { color: #FFFFFF; background: rgba(255,255,255,0.1); }
+  .nav-chevron { transition: transform 180ms ease; opacity: 0.75; flex-shrink: 0; }
+  .nav-trigger[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
+  .nav-link:focus-visible, .mega-link:focus-visible, .mega-featured-cta:focus-visible {
+    outline: 2px solid #F5A02A; outline-offset: 2px;
+  }
+
+  .mega-dropdown {
+    position: absolute; top: calc(100% + 12px); left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    width: min(900px, calc(100vw - 48px));
+    background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 16px;
+    box-shadow: 0 20px 44px -16px rgba(11,36,71,0.22);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+    z-index: 30;
+  }
+  .mega-dropdown.is-open {
+    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto;
+  }
+  .mega-dropdown-inner { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 26px; }
+  .mega-col { display: flex; flex-direction: column; gap: 2px; }
+  .mega-col-title {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #9CA3AF; padding: 2px 12px 10px;
+  }
+  .mega-link {
+    display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 10px;
+    color: #0F172A; text-decoration: none; transition: background 150ms ease;
+  }
+  .mega-link:hover, .mega-link:focus-visible { background: #F7F8FA; color: #0F172A; }
+  .mega-link-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14.5px; }
+  .mega-link-desc { font-size: 12.5px; color: #6B7280; line-height: 1.4; }
+  .mega-featured {
+    background: #0B2447; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;
+  }
+  .mega-featured-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.3; }
+  .mega-featured-desc { font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,0.72); }
+  .mega-featured-cta {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #0B2447;
+    background: #EF8F22; border-radius: 999px; padding: 10px 16px; text-align: center; text-decoration: none; margin-top: 6px;
+  }
+  .mega-featured-cta:hover { background: #D97C10; color: #0B2447; }
+
+  @media (max-width: 900px) {
+    .nav-item { width: 100%; }
+    .nav-link { width: 100%; justify-content: space-between; }
+    .mega-dropdown {
+      position: static; transform: none !important; width: 100%; max-height: 0; overflow: hidden;
+      background: transparent; border: none; border-radius: 0; box-shadow: none;
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transition: max-height 220ms ease;
+    }
+    .mega-dropdown.is-open { max-height: 700px; }
+    .mega-dropdown-inner { grid-template-columns: 1fr; padding: 2px 6px 12px 18px; gap: 0; }
+    .mega-col-title { color: rgba(255,255,255,0.45); padding: 10px 10px 4px; }
+    .mega-link { color: rgba(255,255,255,0.85); padding: 9px 10px; }
+    .mega-link:hover, .mega-link:focus-visible { background: rgba(255,255,255,0.08); color: #FFFFFF; }
+    .mega-link-desc { display: none; }
+    .mega-featured { display: none; }
+  }
+
+
   @media (max-width: 900px) {
     [style*="grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr)"] { grid-template-columns: 1fr !important; }
     [style*="grid-template-columns: minmax(0, 1fr) 340px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px"] { grid-template-columns: 1fr !important; }
     .site-nav { display: none !important; }
     .nav-toggle-btn { display: inline-flex !important; order: 2; }
     .contact-cta { order: 1; }
@@ -45,8 +120,10 @@
   }
   @media (max-width: 700px) {
     [style*="grid-template-columns: repeat(3, minmax(0, 1fr))"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px"] { grid-template-columns: 1fr !important; }
     [style*="padding: 72px 48px 60px"] { padding: 48px 20px 40px !important; }
     [style*="padding: 60px 48px"] { padding: 44px 20px !important; }
+    [style*="padding: 44px 48px"] { padding: 32px 20px !important; }
     [style*="padding: 14px 48px"] { padding: 10px 16px !important; }
     [style*="font-size: 46px"] { font-size: 32px !important; }
     [style*="font-size: 32px"] { font-size: 24px !important; }
@@ -69,14 +146,202 @@
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;" />
 
-      <nav class="site-nav" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;">
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Home</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: #F5A02A; background: #123163; border-radius: 8px; font-weight: 600;">Services</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Hire Talent</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Jobs</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">How We Work</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Insights</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">About</a>
+      <nav class="site-nav" aria-label="Primary" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;">
+        <a href="#home" class="nav-link" style="white-space: nowrap;">Home</a>
+        <div class="nav-item has-dropdown" data-menu="services">
+        <button type="button" class="nav-link nav-trigger is-active" aria-haspopup="true" aria-expanded="false" aria-controls="menu-services" style="white-space: nowrap;">
+          Services
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-services" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Practices</span>
+              <a href="#devops" class="mega-link" role="menuitem" id="menu-services-l0">
+              <span class="mega-link-title">DevOps & Cloud Engineering</span>
+              <span class="mega-link-desc">Automated, observable, reversible deploys.</span>
+            </a>
+              <a href="#testing" class="mega-link" role="menuitem" id="menu-services-l1">
+              <span class="mega-link-title">Quality Engineering</span>
+              <span class="mega-link-desc">Testing that catches what manual QA misses.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Explore</span>
+              <a href="#services" class="mega-link" role="menuitem" id="menu-services-l0">
+              <span class="mega-link-title">Services Overview</span>
+              <span class="mega-link-desc">Start with the problem, not the service list.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-services-l1">
+              <span class="mega-link-title">How We Work</span>
+              <span class="mega-link-desc">Four engagement models, matched to your challenge.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">Not sure which one you need?</span>
+              <span class="mega-featured-desc">Neither are most people on the first call.</span>
+              <a href="#contact" class="mega-featured-cta" role="menuitem">Talk it through →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="nav-item has-dropdown" data-menu="hire-talent">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-hire-talent" style="white-space: nowrap;">
+          Hire Talent
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-hire-talent" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">For employers</span>
+              <a href="#hire-talent" class="mega-link" role="menuitem" id="menu-hire-talent-l0">
+              <span class="mega-link-title">Hire Talent</span>
+              <span class="mega-link-desc">Three vetted candidates in two weeks, not thirty CVs.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-hire-talent-l1">
+              <span class="mega-link-title">How We Work</span>
+              <span class="mega-link-desc">Engagement models for bringing in specialist skills.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">For candidates</span>
+              <a href="#jobs" class="mega-link" role="menuitem" id="menu-hire-talent-l0">
+              <span class="mega-link-title">Browse Jobs</span>
+              <span class="mega-link-desc">Curated roles with published salary ranges.</span>
+            </a>
+              <a href="#submit-cv" class="mega-link" role="menuitem" id="menu-hire-talent-l1">
+              <span class="mega-link-title">Submit Your CV</span>
+              <span class="mega-link-desc">One form, read by a person, not a filter.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">97% placement retention</span>
+              <span class="mega-featured-desc">At 12 months, across every placement we’ve made.</span>
+              <a href="#contact" class="mega-featured-cta" role="menuitem">Tell us what you need →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <a href="#jobs" class="nav-link" style="white-space: nowrap;">Jobs</a>
+        <div class="nav-item has-dropdown" data-menu="how-we-work">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-how-we-work" style="white-space: nowrap;">
+          How We Work
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-how-we-work" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Engagement models</span>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l0">
+              <span class="mega-link-title">Project Based</span>
+              <span class="mega-link-desc">Fixed scope, fixed outcomes, milestone delivery.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l1">
+              <span class="mega-link-title">Time & Materials</span>
+              <span class="mega-link-desc">Flexible capacity for evolving scope.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">&nbsp;</span>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l0">
+              <span class="mega-link-title">Dedicated Team</span>
+              <span class="mega-link-desc">A team fully committed to your objectives.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l1">
+              <span class="mega-link-title">Staff Augmentation</span>
+              <span class="mega-link-desc">Specialist skills embedded, faster than hiring.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">From first call to kickoff</span>
+              <span class="mega-featured-desc">Engineers matched and onboarded within days, not weeks.</span>
+              <a href="#how-we-work" class="mega-featured-cta" role="menuitem">See how it works →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="nav-item has-dropdown" data-menu="insights">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-insights" style="white-space: nowrap;">
+          Insights
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-insights" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Latest articles</span>
+              <a href="#article-pull-delivery" class="mega-link" role="menuitem" id="menu-insights-l0">
+              <span class="mega-link-title">Pull-based delivery</span>
+              <span class="mega-link-desc">Why platform teams are betting on it.</span>
+            </a>
+              <a href="#article-bad-hire" class="mega-link" role="menuitem" id="menu-insights-l1">
+              <span class="mega-link-title">The cost of a bad hire</span>
+              <span class="mega-link-desc">Hidden costs, and how to avoid them.</span>
+            </a>
+              <a href="#article-staff-engineer" class="mega-link" role="menuitem" id="menu-insights-l2">
+              <span class="mega-link-title">Senior dev to staff engineer</span>
+              <span class="mega-link-desc">The skills that actually matter.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">More reading</span>
+              <a href="#article-cloud-bill" class="mega-link" role="menuitem" id="menu-insights-l0">
+              <span class="mega-link-title">Why your cloud bill climbs</span>
+              <span class="mega-link-desc">And what to do about it.</span>
+            </a>
+              <a href="#article-technical-screens" class="mega-link" role="menuitem" id="menu-insights-l1">
+              <span class="mega-link-title">Technical screens that work</span>
+              <span class="mega-link-desc">A hiring manager's guide.</span>
+            </a>
+              <a href="#article-retention" class="mega-link" role="menuitem" id="menu-insights-l2">
+              <span class="mega-link-title">90-day retention hires</span>
+              <span class="mega-link-desc">What separates a good one from a bad one.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">Thinking that moves you forward</span>
+              <span class="mega-featured-desc">Notes on engineering practice, hiring, and careers.</span>
+              <a href="#insights" class="mega-featured-cta" role="menuitem">View all Insights →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="nav-item has-dropdown" data-menu="about">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-about" style="white-space: nowrap;">
+          About
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-about" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Company</span>
+              <a href="#about" class="mega-link" role="menuitem" id="menu-about-l0">
+              <span class="mega-link-title">About Vensiti</span>
+              <span class="mega-link-desc">Two practices, one standard.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-about-l1">
+              <span class="mega-link-title">How We Work</span>
+              <span class="mega-link-desc">Engagement models built around your challenge.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Careers</span>
+              <a href="#jobs" class="mega-link" role="menuitem" id="menu-about-l0">
+              <span class="mega-link-title">Open Roles</span>
+              <span class="mega-link-desc">Browse curated engineering roles.</span>
+            </a>
+              <a href="#submit-cv" class="mega-link" role="menuitem" id="menu-about-l1">
+              <span class="mega-link-title">Submit Your CV</span>
+              <span class="mega-link-desc">We'll keep it on file and reach out.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">Trusted across industries</span>
+              <span class="mega-featured-desc">FinTech, Healthcare, B2B SaaS, Retail, Logistics, Public sector.</span>
+              <a href="#contact" class="mega-featured-cta" role="menuitem">Get in touch →</a>
+            </div>
+          </div>
+        </div>
+      </div>
       </nav>
 
       <a href="#" class="contact-cta" style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 14px 24px; white-space: nowrap;" style-hover="background: #D97C10; color: #0B2447;">Contact US</a>
@@ -93,9 +358,9 @@
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.5);">Home / Services / Quality Engineering</span>
         <h1 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 46px; line-height: 1.05; letter-spacing: -0.03em; margin: 0; max-width: 18ch;">Find the bug before your customer does.</h1>
-        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0; max-width: 54ch;">Functional, performance, security and accessibility testing that catches what manual QA misses — then hands your team a suite they can trust.</p>
+        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0; max-width: 54ch;">We make releases trustworthy — automated, measured, and verified before your customers see them. Your team ships faster, catches issues sooner, and knows what's actually covered.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px;">
-          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px;" style-hover="background: #D97C10; color: #0B2447;">Book an assessment</a>
+          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px;" style-hover="background: #D97C10; color: #0B2447;">Get a 2-week assessment →</a>
           <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.4); border-radius: 999px; padding: 15px 24px;" style-hover="border-color: #FFFFFF;">See a sample report</a>
         </div>
       </div>
@@ -121,13 +386,35 @@
   </section>
 
   <section style="background: #FFFFFF; border-bottom: 1px solid #E5E7EB;">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 44px 48px; display: flex; flex-direction: column; gap: 20px;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 44px 48px; display: flex; flex-direction: column; gap: 24px;">
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Symptoms we usually find</span>
-      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
-        <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 20px; height: 20px; border: 1.5px solid #B3402F; border-radius: 5px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 16px; line-height: 1.55; color: #3F4A57;">The regression suite takes longer than the release it's testing</span></div>
-        <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 20px; height: 20px; border: 1.5px solid #B3402F; border-radius: 5px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 16px; line-height: 1.55; color: #3F4A57;">Nobody trusts a green build enough to skip manual checks</span></div>
-        <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 20px; height: 20px; border: 1.5px solid #B3402F; border-radius: 5px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 16px; line-height: 1.55; color: #3F4A57;">Accessibility and performance issues are found by customers, not QA</span></div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 13px; color: #B3402F;">01</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.01em; line-height: 1.3;">Your test suite has no owner.</span>
+          <span style="font-size: 15px; line-height: 1.55; color: #3F4A57;">The regression suite takes longer than the release it's testing.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 13px; color: #B3402F;">02</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.01em; line-height: 1.3;">Green builds aren't trusted.</span>
+          <span style="font-size: 15px; line-height: 1.55; color: #3F4A57;">Nobody trusts a green build enough to skip manual checks.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 13px; color: #B3402F;">03</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.01em; line-height: 1.3;">Customers find bugs first.</span>
+          <span style="font-size: 15px; line-height: 1.55; color: #3F4A57;">Accessibility and performance issues are found by customers, not QA.</span>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section style="background: #0B2447;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 44px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 56ch;">
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.015em; color: #FFFFFF;">A two-week quality engineering assessment</span>
+        <span style="font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.75);">We work inside your existing test and release workflow to identify coverage, reliability, performance, and accessibility risks — and give your team a prioritized plan to fix them.</span>
+      </div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.06em; color: #F5A02A; white-space: nowrap;">2 weeks · 1 engineer · 1 findings report</span>
     </div>
   </section>
 
@@ -136,56 +423,88 @@
       <div style="display: flex; flex-direction: column; gap: 26px;">
         <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.02em; margin: 0;">What we actually do</h2>
         <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
             <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Test automation &amp; CI integration</span></div>
-            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">A Playwright suite that runs in parallel inside your pipeline, not bolted on after — so a red build blocks the merge, not the release.</p>
+            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Run a Playwright suite in parallel inside your pipeline, not bolted on after, so a red build blocks the merge, not the release.</p>
+            <p style="font-size: 13px; line-height: 1.5; color: #1D4ED8; margin: 0 0 0 34px; font-weight: 600;">Outcome: Faster feedback. Fewer flaky tests. Releases you can trust.</p>
           </div>
-          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
             <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Performance &amp; load testing</span></div>
-            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">k6 load profiles built from your real traffic patterns, run before launch — not discovered during it.</p>
+            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Build k6 load profiles from your real traffic patterns and run them before launch, not discovered during it.</p>
+            <p style="font-size: 13px; line-height: 1.5; color: #1D4ED8; margin: 0 0 0 34px; font-weight: 600;">Outcome: Fewer outages. Known limits. Confident launches.</p>
           </div>
-          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
             <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Security &amp; penetration testing</span></div>
-            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Manual and automated checks against the OWASP Top 10, with findings ranked by exploitability, not just severity score.</p>
+            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Run manual and automated checks against the OWASP Top 10, with findings ranked by exploitability, not just severity score.</p>
+            <p style="font-size: 13px; line-height: 1.5; color: #1D4ED8; margin: 0 0 0 34px; font-weight: 600;">Outcome: Real risks fixed first. Fewer surprises in audit.</p>
           </div>
-          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
             <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Accessibility auditing</span></div>
-            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">WCAG 2.2 AA audits with screen-reader testing, not just an automated scanner report nobody reads.</p>
+            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Run WCAG 2.2 AA audits with screen-reader testing, not just an automated scanner report nobody reads.</p>
+            <p style="font-size: 13px; line-height: 1.5; color: #1D4ED8; margin: 0 0 0 34px; font-weight: 600;">Outcome: Fewer legal risks. A product more people can use.</p>
           </div>
         </div>
 
-        <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 20px;">
-          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.015em; margin: 0;">The first two weeks, day by day</h3>
+        <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 24px;">
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.015em; margin: 0;">The assessment, week by week</h3>
           <div style="display: flex; flex-direction: column; gap: 16px;">
-            <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #1D4ED8; padding-top: 3px; white-space: nowrap;">Day 1–3</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Read-only access, watch a real release</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">We run your current suite and time it honestly.</span></div></div>
-            <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Day 4–8</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Interviews with your QA and dev team</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Where flaky tests get skipped, in their words.</span></div></div>
-            <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Day 9–10</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Findings, ranked by risk of a missed defect</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Yours to keep, whether or not you continue.</span></div></div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8;">Week 1 — Understand</span>
+            <div style="display: flex; flex-direction: column; gap: 14px; padding-left: 2px;">
+              <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #1D4ED8; padding-top: 3px; white-space: nowrap;">Days 1–3</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Observe</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Read-only access. We run your current suite and time it honestly.</span></div></div>
+              <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Days 4–5</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Interview</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">We talk with the QA and dev engineers responsible for shipping and testing.</span></div></div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8;">Week 2 — Diagnose</span>
+            <div style="display: flex; flex-direction: column; gap: 14px; padding-left: 2px;">
+              <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Days 6–8</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Investigate</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">We trace coverage gaps, flaky tests, performance and accessibility issues to their causes.</span></div></div>
+              <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Days 9–10</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Recommend</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">You receive a prioritized findings report and an implementation roadmap.</span></div></div>
+            </div>
+          </div>
+          <div style="border-top: 1px solid #E5E7EB; padding-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">You leave with</span>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px;">
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Prioritized engineering findings</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Risk assessment</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Test strategy recommendations</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Implementation roadmap</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Documentation</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Estimated effort</span>
+            </div>
           </div>
         </div>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 16px;">
-        <div style="background: #0B2447; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 12px; color: #FFFFFF;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Series B SaaS</span>
+        <div style="background: #0B2447; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
           <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 44px; line-height: 1; letter-spacing: -0.03em; color: #EF8F22;">97%</span>
-          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.35;">test coverage on critical paths, 4× faster releases</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.3;">test coverage on critical paths, 4× faster releases</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Series B SaaS</span>
+          <div style="border-top: 1px solid rgba(255,255,255,0.16); padding-top: 12px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Problem</span><span style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85);">A regression suite so slow and flaky the team had stopped trusting it before every release.</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5);">What we changed</span><span style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85);">Rebuilt test automation with Playwright, parallelised in CI, integrated into the release pipeline.</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Result</span><span style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85);">97% coverage on critical paths, releasing four times faster.</span></div>
+          </div>
           <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #F5A02A; margin-top: 4px;" style-hover="color: #FFFFFF;">Read the case study →</a>
         </div>
-        <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Talk to the practice lead</span>
-          <div style="display: flex; gap: 14px; align-items: center;">
-            <span style="width: 56px; height: 56px; border-radius: 999px; background: #EEF2FF; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" stroke="#1D4ED8" stroke-width="1.7" /><path d="M4 20c0-4.5 3.5-7 8-7s8 2.5 8 7" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" /></svg></span>
+        <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px; color: #0B2447;">Talk to the practice lead</span>
+            <span style="font-size: 14px; line-height: 1.55; color: #3F4A57;">Have questions about your test strategy, release confidence, or whether an assessment makes sense?</span>
+          </div>
+          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 13px 18px; text-align: center;" style-hover="background: #123163; color: #FFFFFF;">Book 30 minutes</a>
+          <div style="display: flex; gap: 14px; align-items: center; border-top: 1px solid #F1F2F4; padding-top: 14px;">
+            <span style="width: 56px; height: 56px; border-radius: 999px; overflow: hidden; display: inline-block; flex-shrink: 0;"><img src="data:image/jpeg;base64,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" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></span>
             <div style="display: flex; flex-direction: column; gap: 3px;">
               <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">[Name], [Title]</span>
               <span style="font-size: 13px; color: #6B7280;">Not a form. A person.</span>
             </div>
           </div>
-          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 13px 18px; text-align: center; margin-top: 4px;" style-hover="background: #123163; color: #FFFFFF;">Book 30 minutes</a>
         </div>
         <div style="background: #FFF7ED; border: 1px solid #FBD9A8; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px; color: #0B2447;">Related roles</span>
-          <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Hiring for this yourself? See QA automation engineers available now.</span>
-          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8;" style-hover="color: #EF8F22;">See candidates →</a>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px; color: #0B2447;">Need someone to own it long-term?</span>
+          <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">If the assessment identifies work that needs a permanent owner, we can help you find the right QA engineer.</span>
+          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8;" style-hover="color: #EF8F22;">See available engineers →</a>
         </div>
       </div>
     </div>
@@ -196,20 +515,36 @@
       <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em; margin: 0;">Questions people ask before signing</h2>
       <div style="display: flex; flex-direction: column;">
         <details style="border-bottom: 1px solid #E5E7EB;">
-          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Do you replace our QA team or work alongside them?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
-          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Alongside, by default. We build the suite and the practice with your QA team so they own it once we're gone — replacement is the exception, not the plan.</p>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">How much access do you need?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Least-privilege, read-only to start. Broader access is added only where the assessment actually requires it — never broad admin rights by default.</p>
         </details>
         <details style="border-bottom: 1px solid #E5E7EB;">
-          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">What test framework do you standardize on?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
-          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Playwright for functional and end-to-end coverage, k6 for load — both open source, so nothing you're left maintaining requires a license we hold.</p>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Will you make changes to production?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Not during the two-week assessment. You get read-only access and interviews only — any change afterward is proposed, reviewed, and approved by your team first.</p>
         </details>
         <details style="border-bottom: 1px solid #E5E7EB;">
-          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Do you test in our CI or a separate environment?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
-          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Yours. Tests run inside your existing pipeline so a failure blocks a merge the same way it always has — no separate dashboard to remember to check.</p>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">How do you handle secrets and credentials?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Through your existing vault or secrets manager. Test credentials are scoped to non-production environments wherever possible, and access is revoked the moment the engagement ends.</p>
         </details>
-        <details>
+        <details style="border-bottom: 1px solid #E5E7EB;">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Do you test inside our existing CI/CD pipeline?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Yes. Tests run inside your existing pipeline so a failure blocks a merge the same way it always has — no separate dashboard to remember to check.</p>
+        </details>
+        <details style="border-bottom: 1px solid #E5E7EB;">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Who owns the documentation?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">You do, from day one. Test plans, suites and decision records live in your own repo — nothing is held back at handover.</p>
+        </details>
+        <details style="border-bottom: 1px solid #E5E7EB;">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">What do we receive after two weeks?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">A prioritized findings report, a risk assessment, test strategy recommendations, an implementation roadmap, documentation of what we found, and an estimate of the effort to fix it.</p>
+        </details>
+        <details style="border-bottom: 1px solid #E5E7EB;">
           <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Can we stop after the assessment?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
           <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Yes. The findings are yours either way — there's no obligation to continue into implementation.</p>
+        </details>
+        <details>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">What happens if we want Vensiti to implement the recommendations?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">We scope it as a follow-on engagement — project delivery, a managed pod, or staff augmentation, whichever fits how you want to work. See <a href="#">How We Work</a> for the options.</p>
         </details>
       </div>
     </div>
@@ -218,7 +553,7 @@
   <section style="background: #0B2447;">
     <div style="max-width: 1280px; margin: 0 auto; padding: 60px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px;">
       <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em; margin: 0; max-width: 28ch; line-height: 1.2; color: #FFFFFF;">Two weeks, one engineer, a suite you can trust.</h2>
-      <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 16px 26px; white-space: nowrap;" style-hover="background: #D97C10; color: #0B2447;">Book an assessment →</a>
+      <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 16px 26px; white-space: nowrap;" style-hover="background: #D97C10; color: #0B2447;">Get a 2-week assessment →</a>
     </div>
   </section>
 
@@ -275,6 +610,82 @@
     </div>
   </footer>
 </div>
+<script>
+
+  // Mega-menu navigation: hover (desktop), click/tap, keyboard, Escape, single-open-at-a-time.
+  (function () {
+    var activeItem = null;
+    var closeTimer = null;
+
+    function isDesktop() { return window.innerWidth > 900; }
+
+    function setOpen(item, open) {
+      var trigger = item.querySelector('.nav-trigger');
+      var panel = item.querySelector('.mega-dropdown');
+      if (trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (panel) panel.classList.toggle('is-open', open);
+    }
+
+    function closeItem(item) {
+      if (!item) return;
+      setOpen(item, false);
+      if (activeItem === item) activeItem = null;
+    }
+
+    function openItem(item) {
+      if (activeItem && activeItem !== item) closeItem(activeItem);
+      setOpen(item, true);
+      activeItem = item;
+    }
+
+    var navItems = document.querySelectorAll('.nav-item.has-dropdown');
+    navItems.forEach(function (item) {
+      var trigger = item.querySelector('.nav-trigger');
+      var panel = item.querySelector('.mega-dropdown');
+      if (!trigger || !panel) return;
+
+      function cancelClose() { clearTimeout(closeTimer); }
+      function scheduleClose() {
+        closeTimer = setTimeout(function () { closeItem(item); }, 180);
+      }
+
+      item.addEventListener('mouseenter', function () { if (isDesktop()) { cancelClose(); openItem(item); } });
+      item.addEventListener('mouseleave', function () { if (isDesktop()) scheduleClose(); });
+      panel.addEventListener('mouseenter', cancelClose);
+      panel.addEventListener('mouseleave', function () { if (isDesktop()) scheduleClose(); });
+
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        if (isOpen) { closeItem(item); } else { openItem(item); }
+      });
+
+      item.addEventListener('focusin', function () { cancelClose(); if (isDesktop()) openItem(item); });
+      item.addEventListener('focusout', function () {
+        closeTimer = setTimeout(function () {
+          if (!item.contains(document.activeElement)) closeItem(item);
+        }, 60);
+      });
+
+      panel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { closeItem(item); });
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && activeItem) {
+        var trigger = activeItem.querySelector('.nav-trigger');
+        closeItem(activeItem);
+        if (trigger) trigger.focus();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (activeItem && !activeItem.contains(e.target)) closeItem(activeItem);
+    });
+  })();
+
+</script>
 </x-dc>
 </body>
 </html>

@@ -21,9 +21,84 @@
   details .plus { transition: transform 150ms ease; }
   details[open] .plus { transform: rotate(45deg); }
 
+  /* Mega-menu navigation */
+  .nav-item { display: flex; align-items: center; }
+  .nav-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 15px; white-space: nowrap;
+    color: rgba(255,255,255,0.88); background: none; border: none; cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;
+    border-radius: 8px; transition: color 180ms ease, background 180ms ease;
+  }
+  .nav-link:hover { color: #FFFFFF; }
+  .nav-link.is-active { color: #F5A02A; background: #123163; font-weight: 600; }
+  .nav-trigger[aria-expanded="true"] { color: #FFFFFF; background: rgba(255,255,255,0.1); }
+  .nav-chevron { transition: transform 180ms ease; opacity: 0.75; flex-shrink: 0; }
+  .nav-trigger[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
+  .nav-link:focus-visible, .mega-link:focus-visible, .mega-featured-cta:focus-visible {
+    outline: 2px solid #F5A02A; outline-offset: 2px;
+  }
+
+  .mega-dropdown {
+    position: absolute; top: calc(100% + 12px); left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    width: min(900px, calc(100vw - 48px));
+    background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 16px;
+    box-shadow: 0 20px 44px -16px rgba(11,36,71,0.22);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+    z-index: 30;
+  }
+  .mega-dropdown.is-open {
+    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto;
+  }
+  .mega-dropdown-inner { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 26px; }
+  .mega-col { display: flex; flex-direction: column; gap: 2px; }
+  .mega-col-title {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #9CA3AF; padding: 2px 12px 10px;
+  }
+  .mega-link {
+    display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 10px;
+    color: #0F172A; text-decoration: none; transition: background 150ms ease;
+  }
+  .mega-link:hover, .mega-link:focus-visible { background: #F7F8FA; color: #0F172A; }
+  .mega-link-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14.5px; }
+  .mega-link-desc { font-size: 12.5px; color: #6B7280; line-height: 1.4; }
+  .mega-featured {
+    background: #0B2447; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;
+  }
+  .mega-featured-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.3; }
+  .mega-featured-desc { font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,0.72); }
+  .mega-featured-cta {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 13px; color: #0B2447;
+    background: #EF8F22; border-radius: 999px; padding: 10px 16px; text-align: center; text-decoration: none; margin-top: 6px;
+  }
+  .mega-featured-cta:hover { background: #D97C10; color: #0B2447; }
+
+  @media (max-width: 900px) {
+    .nav-item { width: 100%; }
+    .nav-link { width: 100%; justify-content: space-between; }
+    .mega-dropdown {
+      position: static; transform: none !important; width: 100%; max-height: 0; overflow: hidden;
+      background: transparent; border: none; border-radius: 0; box-shadow: none;
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transition: max-height 220ms ease;
+    }
+    .mega-dropdown.is-open { max-height: 700px; }
+    .mega-dropdown-inner { grid-template-columns: 1fr; padding: 2px 6px 12px 18px; gap: 0; }
+    .mega-col-title { color: rgba(255,255,255,0.45); padding: 10px 10px 4px; }
+    .mega-link { color: rgba(255,255,255,0.85); padding: 9px 10px; }
+    .mega-link:hover, .mega-link:focus-visible { background: rgba(255,255,255,0.08); color: #FFFFFF; }
+    .mega-link-desc { display: none; }
+    .mega-featured { display: none; }
+  }
+
+
   @media (max-width: 900px) {
     [style*="grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr)"] { grid-template-columns: 1fr !important; }
     [style*="grid-template-columns: minmax(0, 1fr) 340px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px"] { grid-template-columns: 1fr !important; }
     .site-nav { display: none !important; }
     .nav-toggle-btn { display: inline-flex !important; order: 2; }
     .contact-cta { order: 1; }
@@ -45,8 +120,10 @@
   }
   @media (max-width: 700px) {
     [style*="grid-template-columns: repeat(3, minmax(0, 1fr))"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px"] { grid-template-columns: 1fr !important; }
     [style*="padding: 72px 48px 60px"] { padding: 48px 20px 40px !important; }
     [style*="padding: 60px 48px"] { padding: 44px 20px !important; }
+    [style*="padding: 44px 48px"] { padding: 32px 20px !important; }
     [style*="padding: 14px 48px"] { padding: 10px 16px !important; }
     [style*="font-size: 46px"] { font-size: 32px !important; }
     [style*="font-size: 32px"] { font-size: 24px !important; }
@@ -69,14 +146,202 @@
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;" />
 
-      <nav class="site-nav" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;">
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Home</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: #F5A02A; background: #123163; border-radius: 8px; font-weight: 600;">Services</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Hire Talent</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Jobs</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">How We Work</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">Insights</a>
-        <a href="#" style="padding: 10px 15px; white-space: nowrap; color: rgba(255,255,255,0.88);" style-hover="color: #FFFFFF;">About</a>
+      <nav class="site-nav" aria-label="Primary" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 15px;">
+        <a href="#home" class="nav-link" style="white-space: nowrap;">Home</a>
+        <div class="nav-item has-dropdown" data-menu="services">
+        <button type="button" class="nav-link nav-trigger is-active" aria-haspopup="true" aria-expanded="false" aria-controls="menu-services" style="white-space: nowrap;">
+          Services
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-services" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Practices</span>
+              <a href="#devops" class="mega-link" role="menuitem" id="menu-services-l0">
+              <span class="mega-link-title">DevOps & Cloud Engineering</span>
+              <span class="mega-link-desc">Automated, observable, reversible deploys.</span>
+            </a>
+              <a href="#testing" class="mega-link" role="menuitem" id="menu-services-l1">
+              <span class="mega-link-title">Quality Engineering</span>
+              <span class="mega-link-desc">Testing that catches what manual QA misses.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Explore</span>
+              <a href="#services" class="mega-link" role="menuitem" id="menu-services-l0">
+              <span class="mega-link-title">Services Overview</span>
+              <span class="mega-link-desc">Start with the problem, not the service list.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-services-l1">
+              <span class="mega-link-title">How We Work</span>
+              <span class="mega-link-desc">Four engagement models, matched to your challenge.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">Not sure which one you need?</span>
+              <span class="mega-featured-desc">Neither are most people on the first call.</span>
+              <a href="#contact" class="mega-featured-cta" role="menuitem">Talk it through →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="nav-item has-dropdown" data-menu="hire-talent">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-hire-talent" style="white-space: nowrap;">
+          Hire Talent
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-hire-talent" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">For employers</span>
+              <a href="#hire-talent" class="mega-link" role="menuitem" id="menu-hire-talent-l0">
+              <span class="mega-link-title">Hire Talent</span>
+              <span class="mega-link-desc">Three vetted candidates in two weeks, not thirty CVs.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-hire-talent-l1">
+              <span class="mega-link-title">How We Work</span>
+              <span class="mega-link-desc">Engagement models for bringing in specialist skills.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">For candidates</span>
+              <a href="#jobs" class="mega-link" role="menuitem" id="menu-hire-talent-l0">
+              <span class="mega-link-title">Browse Jobs</span>
+              <span class="mega-link-desc">Curated roles with published salary ranges.</span>
+            </a>
+              <a href="#submit-cv" class="mega-link" role="menuitem" id="menu-hire-talent-l1">
+              <span class="mega-link-title">Submit Your CV</span>
+              <span class="mega-link-desc">One form, read by a person, not a filter.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">97% placement retention</span>
+              <span class="mega-featured-desc">At 12 months, across every placement we’ve made.</span>
+              <a href="#contact" class="mega-featured-cta" role="menuitem">Tell us what you need →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <a href="#jobs" class="nav-link" style="white-space: nowrap;">Jobs</a>
+        <div class="nav-item has-dropdown" data-menu="how-we-work">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-how-we-work" style="white-space: nowrap;">
+          How We Work
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-how-we-work" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Engagement models</span>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l0">
+              <span class="mega-link-title">Project Based</span>
+              <span class="mega-link-desc">Fixed scope, fixed outcomes, milestone delivery.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l1">
+              <span class="mega-link-title">Time & Materials</span>
+              <span class="mega-link-desc">Flexible capacity for evolving scope.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">&nbsp;</span>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l0">
+              <span class="mega-link-title">Dedicated Team</span>
+              <span class="mega-link-desc">A team fully committed to your objectives.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-how-we-work-l1">
+              <span class="mega-link-title">Staff Augmentation</span>
+              <span class="mega-link-desc">Specialist skills embedded, faster than hiring.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">From first call to kickoff</span>
+              <span class="mega-featured-desc">Engineers matched and onboarded within days, not weeks.</span>
+              <a href="#how-we-work" class="mega-featured-cta" role="menuitem">See how it works →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="nav-item has-dropdown" data-menu="insights">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-insights" style="white-space: nowrap;">
+          Insights
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-insights" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Latest articles</span>
+              <a href="#article-pull-delivery" class="mega-link" role="menuitem" id="menu-insights-l0">
+              <span class="mega-link-title">Pull-based delivery</span>
+              <span class="mega-link-desc">Why platform teams are betting on it.</span>
+            </a>
+              <a href="#article-bad-hire" class="mega-link" role="menuitem" id="menu-insights-l1">
+              <span class="mega-link-title">The cost of a bad hire</span>
+              <span class="mega-link-desc">Hidden costs, and how to avoid them.</span>
+            </a>
+              <a href="#article-staff-engineer" class="mega-link" role="menuitem" id="menu-insights-l2">
+              <span class="mega-link-title">Senior dev to staff engineer</span>
+              <span class="mega-link-desc">The skills that actually matter.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">More reading</span>
+              <a href="#article-cloud-bill" class="mega-link" role="menuitem" id="menu-insights-l0">
+              <span class="mega-link-title">Why your cloud bill climbs</span>
+              <span class="mega-link-desc">And what to do about it.</span>
+            </a>
+              <a href="#article-technical-screens" class="mega-link" role="menuitem" id="menu-insights-l1">
+              <span class="mega-link-title">Technical screens that work</span>
+              <span class="mega-link-desc">A hiring manager's guide.</span>
+            </a>
+              <a href="#article-retention" class="mega-link" role="menuitem" id="menu-insights-l2">
+              <span class="mega-link-title">90-day retention hires</span>
+              <span class="mega-link-desc">What separates a good one from a bad one.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">Thinking that moves you forward</span>
+              <span class="mega-featured-desc">Notes on engineering practice, hiring, and careers.</span>
+              <a href="#insights" class="mega-featured-cta" role="menuitem">View all Insights →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="nav-item has-dropdown" data-menu="about">
+        <button type="button" class="nav-link nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-about" style="white-space: nowrap;">
+          About
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="mega-dropdown" id="menu-about" role="menu">
+          <div class="mega-dropdown-inner">
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Company</span>
+              <a href="#about" class="mega-link" role="menuitem" id="menu-about-l0">
+              <span class="mega-link-title">About Vensiti</span>
+              <span class="mega-link-desc">Two practices, one standard.</span>
+            </a>
+              <a href="#how-we-work" class="mega-link" role="menuitem" id="menu-about-l1">
+              <span class="mega-link-title">How We Work</span>
+              <span class="mega-link-desc">Engagement models built around your challenge.</span>
+            </a>
+            </div>
+            <div class="mega-col" role="none">
+              <span class="mega-col-title">Careers</span>
+              <a href="#jobs" class="mega-link" role="menuitem" id="menu-about-l0">
+              <span class="mega-link-title">Open Roles</span>
+              <span class="mega-link-desc">Browse curated engineering roles.</span>
+            </a>
+              <a href="#submit-cv" class="mega-link" role="menuitem" id="menu-about-l1">
+              <span class="mega-link-title">Submit Your CV</span>
+              <span class="mega-link-desc">We'll keep it on file and reach out.</span>
+            </a>
+            </div>
+            <div class="mega-featured" role="none">
+              <span class="mega-featured-title">Trusted across industries</span>
+              <span class="mega-featured-desc">FinTech, Healthcare, B2B SaaS, Retail, Logistics, Public sector.</span>
+              <a href="#contact" class="mega-featured-cta" role="menuitem">Get in touch →</a>
+            </div>
+          </div>
+        </div>
+      </div>
       </nav>
 
       <a href="#" class="contact-cta" style="margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 14px 24px; white-space: nowrap;" style-hover="background: #D97C10; color: #0B2447;">Contact US</a>
@@ -93,9 +358,9 @@
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.5);">Home / Services / DevOps &amp; Cloud Engineering</span>
         <h1 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 46px; line-height: 1.05; letter-spacing: -0.03em; margin: 0; max-width: 18ch;">Shipping should be boring.</h1>
-        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0; max-width: 54ch;">We make deploys routine: automated, observable, and reversible in one command. Then we teach your team to run it without us.</p>
+        <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0; max-width: 54ch;">We make deployments routine — automated, observable, and reversible in one command. Your team ships faster, recovers safely, and knows what's running in production.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px;">
-          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px;" style-hover="background: #D97C10; color: #0B2447;">Book an assessment</a>
+          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 15px 24px;" style-hover="background: #D97C10; color: #0B2447;">Get a 2-week assessment →</a>
           <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 15px; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.4); border-radius: 999px; padding: 15px 24px;" style-hover="border-color: #FFFFFF;">See a sample report</a>
         </div>
       </div>
@@ -121,13 +386,35 @@
   </section>
 
   <section style="background: #FFFFFF; border-bottom: 1px solid #E5E7EB;">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 44px 48px; display: flex; flex-direction: column; gap: 20px;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 44px 48px; display: flex; flex-direction: column; gap: 24px;">
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Symptoms we usually find</span>
-      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
-        <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 20px; height: 20px; border: 1.5px solid #B3402F; border-radius: 5px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 16px; line-height: 1.55; color: #3F4A57;">Releases need a named person to babysit them</span></div>
-        <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 20px; height: 20px; border: 1.5px solid #B3402F; border-radius: 5px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 16px; line-height: 1.55; color: #3F4A57;">Rollback is a manual, half-remembered procedure</span></div>
-        <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 20px; height: 20px; border: 1.5px solid #B3402F; border-radius: 5px; flex-shrink: 0; margin-top: 2px;"></span><span style="font-size: 16px; line-height: 1.55; color: #3F4A57;">Nobody can say what the cloud bill is buying</span></div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 13px; color: #B3402F;">01</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.01em; line-height: 1.3;">Deployments depend on one person.</span>
+          <span style="font-size: 15px; line-height: 1.55; color: #3F4A57;">Releases need someone watching every step.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 13px; color: #B3402F;">02</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.01em; line-height: 1.3;">Rollback isn't a button.</span>
+          <span style="font-size: 15px; line-height: 1.55; color: #3F4A57;">It's a manual, half-remembered procedure.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 13px; color: #B3402F;">03</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.01em; line-height: 1.3;">Cloud spend has no owner.</span>
+          <span style="font-size: 15px; line-height: 1.55; color: #3F4A57;">Nobody can explain what the bill is actually buying.</span>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section style="background: #0B2447;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 44px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 56ch;">
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.015em; color: #FFFFFF;">A two-week engineering assessment</span>
+        <span style="font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.75);">We work inside your existing engineering workflow to identify delivery, reliability, infrastructure, and cloud-cost risks — and give your team a prioritized plan to fix them.</span>
+      </div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.06em; color: #F5A02A; white-space: nowrap;">2 weeks · 1 engineer · 1 findings report</span>
     </div>
   </section>
 
@@ -136,56 +423,88 @@
       <div style="display: flex; flex-direction: column; gap: 26px;">
         <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.02em; margin: 0;">What we actually do</h2>
         <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
-            <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">CI/CD and release automation</span></div>
-            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">A pipeline that builds, tests and deploys on every merge — with a one-command rollback that doesn't need the person who wrote it.</p>
+          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">CI/CD &amp; release automation</span></div>
+            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Automate builds, tests, deployments, and rollback so releases don't depend on a person being online.</p>
+            <p style="font-size: 13px; line-height: 1.5; color: #1D4ED8; margin: 0 0 0 34px; font-weight: 600;">Outcome: Faster releases. Safer deployments. Easier recovery.</p>
           </div>
-          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
             <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Infrastructure as code</span></div>
-            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Every environment reproducible from version-controlled Terraform — no more "it worked when I clicked it in the console."</p>
+            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Make every environment reproducible from version-controlled Terraform, so nothing depends on what one engineer remembers clicking.</p>
+            <p style="font-size: 13px; line-height: 1.5; color: #1D4ED8; margin: 0 0 0 34px; font-weight: 600;">Outcome: Consistent environments. Fewer surprises. Faster onboarding.</p>
           </div>
-          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
-            <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Observability and on-call design</span></div>
-            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Dashboards and alerts tied to what actually breaks, plus an on-call rotation your engineers can survive.</p>
+          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Observability &amp; on-call design</span></div>
+            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Tie dashboards and alerts to what actually breaks, with an on-call rotation your engineers can sustain.</p>
+            <p style="font-size: 13px; line-height: 1.5; color: #1D4ED8; margin: 0 0 0 34px; font-weight: 600;">Outcome: Incidents caught sooner. Less burnout. Faster recovery.</p>
           </div>
-          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
-            <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Cost and capacity review</span></div>
-            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Line-item breakdown of what's driving the bill, with the over-provisioned resources named, not just flagged.</p>
+          <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 22px; height: 22px; border: 1.7px solid #1D4ED8; border-radius: 5px; flex-shrink: 0;"></span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 20px;">Cost &amp; capacity review</span></div>
+            <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 0 34px;">Get a line-item breakdown of what's driving the bill, with over-provisioned resources named, not just flagged.</p>
+            <p style="font-size: 13px; line-height: 1.5; color: #1D4ED8; margin: 0 0 0 34px; font-weight: 600;">Outcome: Lower spend. Clear ownership. No more surprise invoices.</p>
           </div>
         </div>
 
-        <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 20px;">
-          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.015em; margin: 0;">The first two weeks, day by day</h3>
+        <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 24px;">
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.015em; margin: 0;">The assessment, week by week</h3>
           <div style="display: flex; flex-direction: column; gap: 16px;">
-            <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #1D4ED8; padding-top: 3px; white-space: nowrap;">Day 1–3</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Read-only access, no changes</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">We watch a real release and take notes.</span></div></div>
-            <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Day 4–8</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Interviews with your engineers</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Thirty minutes each. What hurts, in their words.</span></div></div>
-            <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Day 9–10</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Findings, ranked by cost of not fixing</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Yours to keep, whether or not you continue.</span></div></div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8;">Week 1 — Understand</span>
+            <div style="display: flex; flex-direction: column; gap: 14px; padding-left: 2px;">
+              <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #1D4ED8; padding-top: 3px; white-space: nowrap;">Days 1–3</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Observe</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Read-only access. We watch a real release and map your current workflow.</span></div></div>
+              <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Days 4–5</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Interview</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">We talk with the engineers responsible for shipping, infrastructure, and incidents.</span></div></div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #1D4ED8;">Week 2 — Diagnose</span>
+            <div style="display: flex; flex-direction: column; gap: 14px; padding-left: 2px;">
+              <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Days 6–8</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Investigate</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">We trace reliability, deployment, observability, and cost issues to their causes.</span></div></div>
+              <div style="display: flex; gap: 16px;"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; padding-top: 3px; white-space: nowrap;">Days 9–10</span><div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">Recommend</span><span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">You receive a prioritized findings report and an implementation roadmap.</span></div></div>
+            </div>
+          </div>
+          <div style="border-top: 1px solid #E5E7EB; padding-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">You leave with</span>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px;">
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Prioritized engineering findings</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Risk assessment</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Architecture recommendations</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Implementation roadmap</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Documentation</span>
+              <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #0F172A;"><span style="color: #1D4ED8; font-weight: 700;">✓</span>Estimated effort</span>
+            </div>
           </div>
         </div>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 16px;">
-        <div style="background: #0B2447; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 12px; color: #FFFFFF;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Global FinTech · Series C</span>
+        <div style="background: #0B2447; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
           <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 44px; line-height: 1; letter-spacing: -0.03em; color: #EF8F22;">94%</span>
-          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.35;">fewer release rollbacks in 5 months</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.3;">fewer release rollbacks</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Global FinTech · Series C</span>
+          <div style="border-top: 1px solid rgba(255,255,255,0.16); padding-top: 12px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Problem</span><span style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85);">Frequent production rollbacks were slowing releases.</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5);">What we changed</span><span style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85);">Release automation, observability, and rollback strategy.</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Result</span><span style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85);">94% fewer rollbacks in five months.</span></div>
+          </div>
           <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #F5A02A; margin-top: 4px;" style-hover="color: #FFFFFF;">Read the case study →</a>
         </div>
-        <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #9CA3AF;">Talk to the practice lead</span>
-          <div style="display: flex; gap: 14px; align-items: center;">
-            <span style="width: 56px; height: 56px; border-radius: 999px; background: #EEF2FF; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" stroke="#1D4ED8" stroke-width="1.7" /><path d="M4 20c0-4.5 3.5-7 8-7s8 2.5 8 7" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" /></svg></span>
+        <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px; color: #0B2447;">Talk to the practice lead</span>
+            <span style="font-size: 14px; line-height: 1.55; color: #3F4A57;">Have questions about your deployment process, cloud infrastructure, or whether an assessment makes sense?</span>
+          </div>
+          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 13px 18px; text-align: center;" style-hover="background: #123163; color: #FFFFFF;">Book 30 minutes</a>
+          <div style="display: flex; gap: 14px; align-items: center; border-top: 1px solid #F1F2F4; padding-top: 14px;">
+            <span style="width: 56px; height: 56px; border-radius: 999px; overflow: hidden; display: inline-block; flex-shrink: 0;"><img src="data:image/jpeg;base64,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" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></span>
             <div style="display: flex; flex-direction: column; gap: 3px;">
               <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;">[Name], [Title]</span>
               <span style="font-size: 13px; color: #6B7280;">Not a form. A person.</span>
             </div>
           </div>
-          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #FFFFFF; background: #0B2447; border-radius: 999px; padding: 13px 18px; text-align: center; margin-top: 4px;" style-hover="background: #123163; color: #FFFFFF;">Book 30 minutes</a>
         </div>
         <div style="background: #FFF7ED; border: 1px solid #FBD9A8; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px; color: #0B2447;">Related roles</span>
-          <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">Hiring for this yourself? See platform engineers available now.</span>
-          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8;" style-hover="color: #EF8F22;">See candidates →</a>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px; color: #0B2447;">Need someone to own it long-term?</span>
+          <span style="font-size: 15px; color: #3F4A57; line-height: 1.55;">If the assessment identifies work that needs a permanent owner, we can help you find the right engineer.</span>
+          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; color: #1D4ED8;" style-hover="color: #EF8F22;">See available engineers →</a>
         </div>
       </div>
     </div>
@@ -196,20 +515,36 @@
       <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em; margin: 0;">Questions people ask before signing</h2>
       <div style="display: flex; flex-direction: column;">
         <details style="border-bottom: 1px solid #E5E7EB;">
-          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">What happens to our documentation when you leave?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
-          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">It stays with you. Every runbook, diagram and decision record lives in your own repo or wiki from day one — nothing is held back at handover.</p>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">How much access do you need?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Least-privilege, read-only to start. Broader access is added only where the assessment actually requires it — never broad admin rights by default.</p>
         </details>
         <details style="border-bottom: 1px solid #E5E7EB;">
-          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Do your engineers work in our repo or theirs?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
-          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Yours. We work inside your existing repositories and tooling rather than standing up a parallel system you'd have to migrate away from later.</p>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Will you make changes to production?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Not during the two-week assessment. You get read-only access and interviews only — any change afterward is proposed, reviewed, and approved by your team first.</p>
         </details>
         <details style="border-bottom: 1px solid #E5E7EB;">
-          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">How do you handle access, secrets and compliance?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
-          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Least-privilege access scoped to the engagement, revoked on completion, with secrets managed through your existing vault — never copied elsewhere.</p>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">How do you handle secrets and credentials?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Through your existing vault or secrets manager. We never copy credentials elsewhere, and access is revoked the moment the engagement ends.</p>
         </details>
-        <details>
+        <details style="border-bottom: 1px solid #E5E7EB;">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Do you work in our existing cloud account?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Yes. We work inside the account and tooling you already run rather than standing up a parallel environment you'd have to migrate away from later.</p>
+        </details>
+        <details style="border-bottom: 1px solid #E5E7EB;">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Who owns the documentation?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">You do, from day one. Runbooks, diagrams and decision records live in your own repo or wiki — nothing is held back at handover.</p>
+        </details>
+        <details style="border-bottom: 1px solid #E5E7EB;">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">What do we receive after two weeks?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">A prioritized findings report, a risk assessment, architecture recommendations, an implementation roadmap, documentation of what we found, and an estimate of the effort to fix it.</p>
+        </details>
+        <details style="border-bottom: 1px solid #E5E7EB;">
           <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">Can we stop after the assessment?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
           <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">Yes. The findings are yours either way — there's no obligation to continue into implementation.</p>
+        </details>
+        <details>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0;"><span style="font-size: 17px; color: #0B2447;">What happens if we want Vensiti to implement the recommendations?</span><span class="plus" style="font-size: 18px; color: #9CA3AF; flex-shrink: 0;">+</span></summary>
+          <p style="font-size: 15px; line-height: 1.6; color: #3F4A57; margin: 0 0 20px;">We scope it as a follow-on engagement — project delivery, a managed pod, or staff augmentation, whichever fits how you want to work. See <a href="#">How We Work</a> for the options.</p>
         </details>
       </div>
     </div>
@@ -218,7 +553,7 @@
   <section style="background: #0B2447;">
     <div style="max-width: 1280px; margin: 0 auto; padding: 60px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px;">
       <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em; margin: 0; max-width: 28ch; line-height: 1.2; color: #FFFFFF;">Two weeks, one engineer, findings you keep.</h2>
-      <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 16px 26px; white-space: nowrap;" style-hover="background: #D97C10; color: #0B2447;">Book an assessment →</a>
+      <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; color: #0B2447; background: #EF8F22; border-radius: 999px; padding: 16px 26px; white-space: nowrap;" style-hover="background: #D97C10; color: #0B2447;">Get a 2-week assessment →</a>
     </div>
   </section>
 
@@ -275,6 +610,82 @@
     </div>
   </footer>
 </div>
+<script>
+
+  // Mega-menu navigation: hover (desktop), click/tap, keyboard, Escape, single-open-at-a-time.
+  (function () {
+    var activeItem = null;
+    var closeTimer = null;
+
+    function isDesktop() { return window.innerWidth > 900; }
+
+    function setOpen(item, open) {
+      var trigger = item.querySelector('.nav-trigger');
+      var panel = item.querySelector('.mega-dropdown');
+      if (trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (panel) panel.classList.toggle('is-open', open);
+    }
+
+    function closeItem(item) {
+      if (!item) return;
+      setOpen(item, false);
+      if (activeItem === item) activeItem = null;
+    }
+
+    function openItem(item) {
+      if (activeItem && activeItem !== item) closeItem(activeItem);
+      setOpen(item, true);
+      activeItem = item;
+    }
+
+    var navItems = document.querySelectorAll('.nav-item.has-dropdown');
+    navItems.forEach(function (item) {
+      var trigger = item.querySelector('.nav-trigger');
+      var panel = item.querySelector('.mega-dropdown');
+      if (!trigger || !panel) return;
+
+      function cancelClose() { clearTimeout(closeTimer); }
+      function scheduleClose() {
+        closeTimer = setTimeout(function () { closeItem(item); }, 180);
+      }
+
+      item.addEventListener('mouseenter', function () { if (isDesktop()) { cancelClose(); openItem(item); } });
+      item.addEventListener('mouseleave', function () { if (isDesktop()) scheduleClose(); });
+      panel.addEventListener('mouseenter', cancelClose);
+      panel.addEventListener('mouseleave', function () { if (isDesktop()) scheduleClose(); });
+
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        if (isOpen) { closeItem(item); } else { openItem(item); }
+      });
+
+      item.addEventListener('focusin', function () { cancelClose(); if (isDesktop()) openItem(item); });
+      item.addEventListener('focusout', function () {
+        closeTimer = setTimeout(function () {
+          if (!item.contains(document.activeElement)) closeItem(item);
+        }, 60);
+      });
+
+      panel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { closeItem(item); });
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && activeItem) {
+        var trigger = activeItem.querySelector('.nav-trigger');
+        closeItem(activeItem);
+        if (trigger) trigger.focus();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (activeItem && !activeItem.contains(e.target)) closeItem(activeItem);
+    });
+  })();
+
+</script>
 </x-dc>
 </body>
 </html>
